@@ -7,7 +7,7 @@
   <th width="10%">사진</th>
   <th width="35%">이름</th>
   <th width="35%">아이디</th>
-  <th width="30%">처리</th>
+  <th width="30%">GOOD</th>
  </tr>
  @foreach($data as $row)
   <tr>
