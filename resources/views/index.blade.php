@@ -4,10 +4,10 @@
 
 <table class="table table-bordered table-striped">
  <tr>
-  <th width="10%">Photo</th>
-  <th width="35%">First Name</th>
-  <th width="35%">Last Name</th>
-  <th width="30%">Action</th>
+  <th width="10%">사진</th>
+  <th width="35%">이름</th>
+  <th width="35%">아이디</th>
+  <th width="30%">처리</th>
  </tr>
  @foreach($data as $row)
   <tr>
