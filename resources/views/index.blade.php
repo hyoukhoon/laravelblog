@@ -4,7 +4,7 @@
 
 <table class="table table-bordered table-striped">
  <tr>
-  <th width="10%">Image</th>
+  <th width="10%">Photo</th>
   <th width="35%">First Name</th>
   <th width="35%">Last Name</th>
   <th width="30%">Action</th>
