@@ -11,14 +11,18 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-    - name: install ssh keys
-      # check this thread to understand why its needed:
-      # https://stackoverflow.com/a/70447517
+    - name: Checkout Repository
+      uses: actions/checkout@v2
+
+    - name: Create SSH Key
       run: |
-        install -m 600 -D /dev/null ~/.ssh/id_rsa
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        ssh-keyscan -H ${{ secrets.REMOTE_HOST }} > ~/.ssh/known_hosts
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/private-key.pem
+        chmod 600 ~/private-key.pem
+    - name: Create SSH directory
+      run: |
+        mkdir -p ~/.ssh
+    - name: Add known host
+      run: |
+        ssh-keyscan ${{ secrets.REMOTE_HOST }} >> ~/.ssh/known_hosts    
     - name: connect and pull
-      run: ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
-    - name: cleanup
-      run: rm -rf ~/.ssh
+      run: ssh -i ~/private-key.pem ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "cd ${{ secrets.WORK_DIR }} && git checkout ${{ secrets.MAIN_BRANCH }} && git pull && exit"
