@@ -1,0 +1,1 @@
+nohup php artisan serve --host 211.45.175.47 --port 8000 &
