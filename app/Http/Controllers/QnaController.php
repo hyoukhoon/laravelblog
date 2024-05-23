@@ -16,9 +16,9 @@ class QnaController extends Controller
 
     public function index(){
         // Qnas 의 데이터를 최신순으로 페이징을 해서 가져옵니다.
-        $Qnas = $this->Qna->latest()->paginate(10);
+        $Qnas = $this->Qna->first()->paginate(10);
         // produce/index.blade 에 $Qnas 를 보내줍니다
         return view('Qna.index', compact('Qnas')); //
     }
-    
+
 }
