@@ -126,6 +126,7 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
             'Laravel\\SerializableClosure\\' => 28,
             'Laravel\\Sanctum\\' => 16,
             'Laravel\\Sail\\' => 13,
+            'Laracademy\\Generators\\' => 22,
         ),
         'I' => 
         array (
@@ -426,6 +427,10 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         array (
             0 => __DIR__ . '/..' . '/laravel/sail/src',
         ),
+        'Laracademy\\Generators\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laracademy/generators/src',
+        ),
         'Illuminate\\Support\\' => 
         array (
             0 => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Macroable',
@@ -530,6 +535,7 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CrudsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CrudsController.php',
+        'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -2702,6 +2708,8 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'Illuminate\\View\\ViewFinderInterface' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewFinderInterface.php',
         'Illuminate\\View\\ViewName' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewName.php',
         'Illuminate\\View\\ViewServiceProvider' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/View/ViewServiceProvider.php',
+        'Laracademy\\Generators\\Commands\\ModelFromTableCommand' => __DIR__ . '/..' . '/laracademy/generators/src/Commands/ModelFromTableCommand.php',
+        'Laracademy\\Generators\\GeneratorsServiceProvider' => __DIR__ . '/..' . '/laracademy/generators/src/GeneratorsServiceProvider.php',
         'Laravel\\Sail\\Console\\AddCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/AddCommand.php',
         'Laravel\\Sail\\Console\\Concerns\\InteractsWithDockerComposeServices' => __DIR__ . '/..' . '/laravel/sail/src/Console/Concerns/InteractsWithDockerComposeServices.php',
         'Laravel\\Sail\\Console\\InstallCommand' => __DIR__ . '/..' . '/laravel/sail/src/Console/InstallCommand.php',
