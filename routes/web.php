@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudsController;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\QnaController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -30,3 +31,5 @@ Route::get('/create', [CrudsController::class, 'create']);
 Route::get('/products', [ProductController::class, 'index'])->name('products.index');
 Route::get('/products/create', [ProductController::class, 'create'])->name('products.create');
 Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
+
+Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
