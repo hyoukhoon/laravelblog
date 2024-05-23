@@ -26,8 +26,8 @@
         @foreach ($Qnas as $key => $Qna)
             <tr>
                 <th scope="row">{{$key+1 + (($Qnas->currentPage()-1) * 10)}}</th>
-                <td>{{$Qna->name}}</td>
-                <td>{{$Qna->created_at}}</td>
+                <td>{{$Qna->username}}</td>
+                <td>{{$Qna->regdate}}</td>
                 <td>Edit/Delete</td>
             </tr>
         @endforeach
