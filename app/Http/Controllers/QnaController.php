@@ -20,20 +20,5 @@ class QnaController extends Controller
         // produce/index.blade 에 $Qnas 를 보내줍니다
         return view('Qna.index', compact('Qnas')); //
     }
-
-    public function create(){
-        return view('Qna.create');
-    }
-
-    public function store(Request $request)
-    {
-        // Request 에 대한 유효성 검사입니다, 다양한 종류가 있기에 공식문서를 보시는 걸 추천드립니다.
-        // 유효성에 걸린 에러는 errors 에 담깁니다.
-        $request = $request->validate([
-            'name' => 'required',
-            'content' => 'required'
-        ]);
-        $this->Qna->create($request);
-        return redirect()->route('Qna.index');
-    }
+    
 }
