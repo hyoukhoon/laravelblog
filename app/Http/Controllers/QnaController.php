@@ -6,21 +6,10 @@ use Illuminate\Http\Request;
 
 class QnaController extends Controller
 {
-    private $Qna;
-
-    public function __construct(Qna $Qna){
-        // Laravel 의 IOC(Inversion of Control) 입니다
-        // 일단은 이렇게 모델을 가져오는 것이 추천 코드라고 생각하시면 됩니다.
-        $this->Qna = $Qna;
-    }
-
     public function index(){
-        // Qnas 의 데이터를 최신순으로 페이징을 해서 가져옵니다.
-        //latest('your_datetime_column')->get();
         //Qna::orderBy('regdate', 'desc')->get();
-        $Qnas = $this->Qna->latest('regdate')->paginate(10);
-        // produce/index.blade 에 $Qnas 를 보내줍니다
-        return view('qna.index', compact('Qnas')); //
+        $Qnas = Qna::latest('regdate')->paginate(10);
+        return view('qna.index', compact('Qnas'));
     }
 
 }
