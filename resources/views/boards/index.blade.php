@@ -26,7 +26,7 @@
                 <td>{{$board->name}}</td>
                 <td>{{$board->subject}}</td>
                 <td>{{$board->cnt}}</td>
-                <td>{{$board->reg_date}}</td>
+                <td>{{$board->reg_date->format("Y-m-d")}}</td>
             </tr>
         @endforeach
         </tbody>
