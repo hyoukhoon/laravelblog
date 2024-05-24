@@ -9,6 +9,9 @@
                 <td>{{ $boards->subject }}</td>
             </tr>
             <tr>
+                <td colspan="2">글쓴이 : {{ $boards->name }}&nbsp;조회 : {{ number_format($boards->cnt) }}&nbsp;등록일 : {{ $boards->reg_date }}</td>
+            </tr>
+            <tr>
                 <th width="100">내용</th>
                 <td>{!! $boards->content !!}</td>
             </tr>
