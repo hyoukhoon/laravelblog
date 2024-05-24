@@ -23,7 +23,7 @@
         @foreach ($boards as $key => $board)
             <tr>
                 <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th>
-                <td>{{$board->username}}</td>
+                <td>{{$board->name}}</td>
                 <td>{{$board->subject}}</td>
                 <td>{{$board->cnt}}</td>
                 <td>{{$board->reg_date}}</td>
