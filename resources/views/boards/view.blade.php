@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <th width="100">내용</th>
-                <td style="white-space:pre-line;">{!! nl2br($boards->content) !!}</td>
+                <td style="white-space:pre-line;">{!! $boards->content !!}</td>
             </tr>
         </tbody>
     </table>
