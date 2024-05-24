@@ -32,5 +32,5 @@
         </tbody>
     </table>
     {{-- {!! $boards->links() !!} --}}
-    {{ $rs->links('pagination.default') }}
+    {{ $boards->links('pagination.default') }}
 @endsection
