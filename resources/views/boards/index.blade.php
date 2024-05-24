@@ -22,7 +22,7 @@
         <tbody>
         @foreach ($boards as $key => $board)
             <tr>
-                <th scope="row">{{$key+1 + (($Qnas->currentPage()-1) * 10)}}</th>
+                <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th>
                 <td>{{$board->username}}</td>
                 <td>{{$board->subject}}</td>
                 <td>{{$board->cnt}}</td>
