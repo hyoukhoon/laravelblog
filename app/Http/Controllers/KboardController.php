@@ -17,7 +17,6 @@ class KboardController extends Controller
     public function show($num)
     {
         $boards = Kboard::findOrFail($num);
-        $boards->contents=htmlspecialchars_decode($boards->contents);
         return view('boards.view', compact('boards'));
     }
 

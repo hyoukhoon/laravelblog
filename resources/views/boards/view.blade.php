@@ -10,7 +10,7 @@
             </tr>
             <tr>
                 <th scope="col">내용</th>
-                <td>{{ $boards->content }}</td>
+                <td>{!! $boards->content !!}</td>
             </tr>
         </tbody>
     </table>
