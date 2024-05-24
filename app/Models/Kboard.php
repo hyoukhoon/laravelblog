@@ -62,7 +62,7 @@ class Kboard extends Model
      * @var array
      */
     protected $fillable = [
-        'reg_date', 'mobile', 'multi', 'name', 'notice', 'notviewmemo', 'passwd', 'pnum', 'point', 'memo_date', 'scrap_cnt', 'secret', 'step', 'subject', 'thumb', 'uid', 'url', 'videourl', 'good', 'bad', 'cate', 'cnt', 'content', 'edit_date', 'email', 'file_list', 'fn_name1', 'fn_name2', 'attachfile', 'gubun', 'html', 'ip', 'isdisp', 'isimg', 'iswarning', 'level', 'memo_cnt'
+        'subject', 'content', 'email', 'ip', 'isdisp', 'isimg', 'memo_cnt'
     ];
 
     /**

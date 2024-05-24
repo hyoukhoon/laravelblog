@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CrudsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QnaController;
+use App\Http\Controllers\KboardController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -33,3 +34,5 @@ Route::get('/products/create', [ProductController::class, 'create'])->name('prod
 Route::post('/products/store', [ProductController::class, 'store'])->name('products.store');
 
 Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
+
+Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
