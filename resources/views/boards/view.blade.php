@@ -12,10 +12,10 @@
                 <th width="100">내용</th>
                 <td>{!! $boards->content !!}</td>
             </tr>
-            <tr>
+            {{-- <tr>
                 <th>이미지</th>
                 <td><img src="https://www.zzarbang.com/board/upImages/data/oz_2023061721464616383.jpg" style="max-width: 100%; padding: 10px;"></td>
-            </tr>
+            </tr> --}}
         </tbody>
     </table>
     <div align="right">
