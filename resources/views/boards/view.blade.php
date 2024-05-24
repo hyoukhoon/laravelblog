@@ -5,11 +5,11 @@
     <table class="table table-striped table-hover">
         <tbody>
             <tr>
-                <th scope="col">제목</th>
+                <th width="100">제목</th>
                 <td>{{ $boards->subject }}</td>
             </tr>
             <tr>
-                <th scope="col">내용</th>
+                <th width="100">내용</th>
                 <td style="white-space:pre-line;">{!! nl2br($boards->content) !!}</td>
             </tr>
         </tbody>
