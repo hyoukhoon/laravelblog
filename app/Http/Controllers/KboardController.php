@@ -14,4 +14,10 @@ class KboardController extends Controller
         return view('boards.index', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
+    public function show($num)
+    {
+        $data = Kboard::findOrFail('num',$num);
+        return view('boards.view', compact('boards'));
+    }
+
 }

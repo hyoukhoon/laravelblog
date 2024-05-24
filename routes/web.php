@@ -36,3 +36,4 @@ Route::post('/products/store', [ProductController::class, 'store'])->name('produ
 Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
+Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
