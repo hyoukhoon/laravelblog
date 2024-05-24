@@ -31,5 +31,6 @@
         @endforeach
         </tbody>
     </table>
-    {!! $boards->links() !!}
+    {{-- {!! $boards->links() !!} --}}
+    {{ $rs->links('pagination.default') }}
 @endsection
