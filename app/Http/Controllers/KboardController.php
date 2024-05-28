@@ -12,7 +12,6 @@ class KboardController extends Controller
         //$boards = Kboard::latest('reg_date')->paginate(10);
         $boards = Kboard::orderBy('num','desc')->paginate(20);
         //error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($boards,true)."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
-        //$boards->reg_date = disptime($boards->reg_date);
         //return view('boards.index', compact('boards'));
         return view('boards.index', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
     }
