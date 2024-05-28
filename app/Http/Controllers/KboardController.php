@@ -7,6 +7,11 @@ use Log;
 
 class KboardController extends Controller
 {
+
+    public function login(){
+        return view('login');
+    }
+
     public function index(){
         //Qna::orderBy('regdate', 'desc')->get();
         //$boards = Kboard::latest('reg_date')->paginate(10);
