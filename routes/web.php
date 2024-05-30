@@ -5,6 +5,7 @@ use App\Http\Controllers\CrudsController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\QnaController;
 use App\Http\Controllers\KboardController;
+use App\Http\Controllers\LoginController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -37,4 +38,5 @@ Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
-Route::get('/login', [KboardController::class, 'login'])->name('login');
+
+Route::get('/login', [LoginController::class, 'index'])->name('auth.login');

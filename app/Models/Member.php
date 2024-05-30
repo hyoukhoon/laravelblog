@@ -46,7 +46,7 @@ class Member extends Model
      * @var array
      */
     protected $fillable = [
-        'isAuth', 'email', 'wronglogin', 'uid', 'signtype', 'resetpass', 'regDate', 'photo', 'passwd', 'nickName', 'mobile', 'loginIp', 'lastLogin', 'isPush', 'ismember', 'isEmail', 'passUpDate'
+        'email', 'passwd', 'nickName', 'mobile', 'loginIp', 'lastLogin'
     ];
 
     /**
