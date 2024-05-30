@@ -22,8 +22,9 @@ class LoginController extends Controller
             'passwd'        =>   $passwd
         );
         $loginInfo = $request -> only(['email', 'passwd']);
-        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($form_data,true)."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
-        if(auth() -> attempt($form_data)){
+        $rs = auth() -> attempt($loginInfo);
+        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($rs,true)."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
+        if(auth() -> attempt($loginInfo)){
             return redirect() -> route('boards.index');
         } else{
             return redirect() -> route('auth.login');
