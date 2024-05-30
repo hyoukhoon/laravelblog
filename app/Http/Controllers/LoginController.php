@@ -20,8 +20,8 @@ class LoginController extends Controller
             'email'       =>   $email,
             'passwd'        =>   $passwd
         );
-        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($form_data,true)."\n", 3, "/var/www/chukppa/board/upImages/data/V_".date("Ymd").'.log');
         $loginInfo = $request -> only(['email', 'passwd']);
+        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($loginInfo,true)."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
         if(auth() -> attempt($loginInfo)){
             return redirect() -> route('boards.index');
         } else{
