@@ -40,3 +40,4 @@ Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
 
 Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
+Route::post('/login', [LoginController::class, 'login']) -> name('auth.login.attempt');
