@@ -13,6 +13,14 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
+        $email = $request->email;
+        $passwd = $request->passwd;
+        $passwd = hash('sha512',$passwd);
+        $form_data = array(
+            'email'       =>   $email,
+            'passwd'        =>   $passwd
+        );
+        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($form_data,true)."\n", 3, "/var/www/chukppa/board/upImages/data/V_".date("Ymd").'.log');
         $loginInfo = $request -> only(['email', 'passwd']);
         if(auth() -> attempt($loginInfo)){
             return redirect() -> route('boards.index');
