@@ -100,7 +100,7 @@
     <label for="floatingInput">Email address</label>
   </div>
   <div class="form-floating">
-    <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+    <input type="password" name="passwd" class="form-control" id="floatingPassword" placeholder="Password">
     <label for="floatingPassword">Password</label>
   </div>
 

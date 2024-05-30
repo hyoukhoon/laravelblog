@@ -13,7 +13,7 @@ class LoginController extends Controller
     }
 
     public function login(Request $request){
-        $loginInfo = $request -> only(['email', 'password']);
+        $loginInfo = $request -> only(['email', 'passwd']);
         if(auth() -> attempt($loginInfo)){
             return redirect() -> route('boards.index');
         } else{
