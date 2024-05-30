@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Log;
 
 class LoginController extends Controller
@@ -15,7 +16,7 @@ class LoginController extends Controller
     public function login(Request $request){
         $email = $request->email;
         $passwd = $request->passwd;
-        $passwd = hash('sha512',$passwd);
+        $passwd = Hash::make($passwd);
         $form_data = array(
             'email'       =>   $email,
             'passwd'        =>   $passwd
