@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Hash;
 
 /**
  * @property int      $num
@@ -39,6 +40,10 @@ class Member extends Model
      * @var string
      */
     protected $primaryKey = 'num';
+
+    public function setPasswordAttribute($value){
+        $this->attributes['passwd'] = Hash::make($value);
+    }
 
     /**
      * Attributes that should be mass-assignable.
