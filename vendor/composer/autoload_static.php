@@ -35,6 +35,7 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'ce9671a430e4846b44e1c68c7611f9f5' => __DIR__ . '/..' . '/mockery/mockery/library/Mockery.php',
         'ec07570ca5a812141189b1fa81503674' => __DIR__ . '/..' . '/phpunit/phpunit/src/Framework/Assert/Functions.php',
         '320163ac6b93aebe3dc25b60a0533d56' => __DIR__ . '/..' . '/spatie/laravel-ignition/src/helpers.php',
+        'be2dabd89e6571c763d3c521b1c3701e' => __DIR__ . '/../..' . '/app/Helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -535,7 +536,9 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
         'App\\Http\\Controllers\\CrudsController' => __DIR__ . '/../..' . '/app/Http/Controllers/CrudsController.php',
+        'App\\Http\\Controllers\\KboardController' => __DIR__ . '/../..' . '/app/Http/Controllers/KboardController.php',
         'App\\Http\\Controllers\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/ProductController.php',
+        'App\\Http\\Controllers\\QnaController' => __DIR__ . '/../..' . '/app/Http/Controllers/QnaController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\EncryptCookies' => __DIR__ . '/../..' . '/app/Http/Middleware/EncryptCookies.php',
@@ -547,7 +550,10 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'App\\Http\\Middleware\\ValidateSignature' => __DIR__ . '/../..' . '/app/Http/Middleware/ValidateSignature.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
         'App\\Models\\Crud' => __DIR__ . '/../..' . '/app/Models/Crud.php',
+        'App\\Models\\Kboard' => __DIR__ . '/../..' . '/app/Models/Kboard.php',
+        'App\\Models\\Qna' => __DIR__ . '/../..' . '/app/Models/Qna.php',
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
+        'App\\Models\\XcQna' => __DIR__ . '/../..' . '/app/Models/XcQna.php',
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
