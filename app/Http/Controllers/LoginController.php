@@ -24,7 +24,7 @@ class LoginController extends Controller
         );
         $loginInfo = $request -> only(['email', 'passwd']);
         //error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").'] pass => '. $request->passwd." / ".$passwd."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
-        if (Auth::guard('web')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)) {
+        if (Auth::guard('web')->attempt(['email' => $request->email, 'passwd' => $request->passwd], $request->remember)) {
             return redirect() -> route('boards.index');
         } else{
             return redirect() -> route('auth.login');
