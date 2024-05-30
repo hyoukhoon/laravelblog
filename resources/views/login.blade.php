@@ -89,7 +89,7 @@
   </style>
 
 <main class="form-signin w-100 m-auto">
-<form method="post" action="/login">
+<form method="post" action="/loginok">
 <div style="text-align:center;">
   <img class="mb-4" src="/images/bootstrap-logo.svg" alt="" width="72" height="57">
   <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
