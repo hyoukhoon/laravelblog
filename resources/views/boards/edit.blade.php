@@ -1,7 +1,7 @@
 @extends('boards.layout')
 @section('content')
 <br />
-     <form method="post" action="/boards/update/{{ $boards->num }}" enctype="multipart/form-data">
+     <form method="post" action="/boards/update/{{ $boards->num }}">
         @csrf
         @method('post')
       <div class="form-group">
@@ -21,7 +21,7 @@
       <br />
       <br />
       <div class="col-md-8 form-group text-center">
-       <input type="submit" name="edit" class="btn btn-primary input-lg" value="수정" />
+       <input type="submit" class="btn btn-primary input-lg" value="수정" />
       </div>
      </form>
 
