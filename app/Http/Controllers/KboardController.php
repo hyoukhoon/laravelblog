@@ -25,6 +25,18 @@ class KboardController extends Controller
         }
     }
 
+    public function create(Request $request)
+    {
+        $form_data = array(
+            'subject'       =>   $request->subject,
+            'content'        =>   $request->content
+        );
+
+        Kboard::create($form_data);
+
+        return redirect('/boards')->with('success', 'Data Added successfully.');
+    }
+
     public function show($num)
     {
         $boards = Kboard::findOrFail($num);
