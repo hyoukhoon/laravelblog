@@ -20,8 +20,8 @@ class LoginController extends Controller
         //$passwd = Hash::make($passwd);
         $passwd = hash('sha512',$passwd);
         $loginInfo = array(
-            'email'       =>   $email,
-            'passwd'        =>   $passwd
+            'email' => $email,
+            'passwd' => $passwd
         );
         //$ismember=Member::where($loginInfo)->exists();
         $ismember = Member::where($loginInfo)->first();
@@ -32,19 +32,10 @@ class LoginController extends Controller
         }else{
             return redirect() -> route('auth.login');
         }
-
-        
-        // if(auth() -> attempt($loginInfo)){
-        //     return redirect() -> route('boards.index');
-        // } else{
-        //     return redirect() -> route('auth.login');
-        // }
-
     }
 
     public function logout(){
         auth() -> logout();
-        
         return redirect() -> route('boards.index');
     }
 }

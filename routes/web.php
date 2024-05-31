@@ -41,3 +41,4 @@ Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards
 
 Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/loginok', [LoginController::class, 'login']) -> name('auth.loginok');
+Route::post('/logout', [LoginController::class, 'logout']) -> name('auth.logout');
