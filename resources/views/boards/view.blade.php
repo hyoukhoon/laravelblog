@@ -20,7 +20,7 @@
     <div align="right">
         @if($boards->email==auth()->user()->email)
             <a href="/boards/edit/{{ $boards->num }}" class="btn btn-default">수정</a>
-            <a href="/boards/delete/{{ $boards->num }}" class="btn btn-default">삭제</a>
+            <a href="/boards/delete/{{ $boards->num }}" class="btn btn-default" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
         @else
 
         @endif

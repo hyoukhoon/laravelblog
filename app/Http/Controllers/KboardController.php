@@ -52,7 +52,10 @@ class KboardController extends Controller
 
     public function delete($num)
     {
-        
+        $data = Kboard::findOrFail($num);
+        $data->delete();
+
+        return redirect('/boards')->with('success', 'Data is successfully deleted');
     }
 
 }
