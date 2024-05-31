@@ -18,6 +18,7 @@ class LoginController extends Controller
         $passwd = $request->passwd;
         //$passwd = Hash::make($passwd);
         $passwd = hash('sha512',$passwd);
+        $remember = $request->remember;
         $loginInfo = array(
             'email' => $email,
             'passwd' => $passwd
@@ -26,7 +27,7 @@ class LoginController extends Controller
         $ismember = Member::where($loginInfo)->first();
         //print_r($ismember);
         if($ismember){
-            Auth::login($ismember);
+            Auth::login($ismember, $remember);
             return redirect() -> route('boards.index');
         }else{
             return redirect() -> route('auth.login');
