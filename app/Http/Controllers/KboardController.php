@@ -38,7 +38,7 @@ class KboardController extends Controller
             'content'        =>   $request->content
         );
 
-        if(Kboard::whereId($num)->update($form_data)){
+        if(Kboard::where('num', $num)->update($form_data)){
             return redirect('boards.view')->with($num);
         }else{
             return redirect('boards.edit')->with($num);
