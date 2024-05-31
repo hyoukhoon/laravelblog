@@ -10,13 +10,11 @@
         <input type="text" name="first_name" value="{{ $boards->subject }}" class="form-control input-lg" />
        </div>
       </div>
-      <br />
-      <br />
-      <br />
+
       <div class="form-group">
        <label class="col-md-4 text-right">내용</label>
        <div class="col-md-8">
-            <textarea name="content" rows="10" cols="600">{{ $boards->content }}</textarea>
+            <textarea name="content" rows="10" cols="200">{{ $boards->content }}</textarea>
        </div>
       </div>
       <br />
