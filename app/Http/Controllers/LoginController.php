@@ -16,18 +16,23 @@ class LoginController extends Controller
     public function login(Request $request){
         $email = $request->email;
         $passwd = $request->passwd;
-        $passwd = Hash::make($passwd);
-        $form_data = array(
+        //$passwd = Hash::make($passwd);
+        $passwd = hash('sha512',$passwd);
+        $loginInfo = array(
             'email'       =>   $email,
             'passwd'        =>   $passwd
         );
-        $loginInfo = $request -> only(['email', 'passwd']);
-        error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").'] pass => '. $request->passwd." / ".$passwd."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
-        if(auth() -> attempt($loginInfo)){
-            return redirect() -> route('boards.index');
-        } else{
-            return redirect() -> route('auth.login');
-        }
+        //$loginInfo = $request -> only(['email', 'passwd']);
+
+        $ismember=Member::where($loginInfo)->exists();
+
+        echo "member -> ".$ismember;
+        
+        // if(auth() -> attempt($loginInfo)){
+        //     return redirect() -> route('boards.index');
+        // } else{
+        //     return redirect() -> route('auth.login');
+        // }
 
     }
 

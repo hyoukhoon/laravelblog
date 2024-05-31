@@ -41,9 +41,9 @@ class Member extends Model
      */
     protected $primaryKey = 'num';
 
-    public function setPasswordAttribute($value){
-        $this->attributes['passwd'] = Hash::make($value);
-    }
+    // public function setPasswordAttribute($value){
+    //     $this->attributes['passwd'] = Hash::make($value);
+    // }
 
     /**
      * Attributes that should be mass-assignable.
