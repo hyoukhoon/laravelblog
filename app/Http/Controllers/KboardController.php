@@ -21,7 +21,7 @@ class KboardController extends Controller
         if(auth()->check()){
             return view('boards.write');
         }else{
-            return redirect()->back('로그인 하십시오.');
+            return redirect()->back()->alert('로그인 하십시오.');
         }
     }
 
