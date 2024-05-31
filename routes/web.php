@@ -18,7 +18,7 @@ use App\Http\Controllers\LoginController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('/boards');
 });
 
 Route::get('/crud', [CrudsController::class, 'index'])->name('crud.index');
