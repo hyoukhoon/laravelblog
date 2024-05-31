@@ -26,7 +26,8 @@ class KboardController extends Controller
 
     public function edit($num)
     {
-        
+        $boards = Kboard::findOrFail($num);
+        return view('boards.edit', compact('boards'));
     }
 
     public function update($num)
