@@ -40,7 +40,7 @@ Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
 Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');
 Route::post('/boards/update/{id}', [KboardController::class, 'update'])->name('boards.update');
-Route::post('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
+Route::get('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
 
 Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/loginok', [LoginController::class, 'login']) -> name('auth.loginok');
