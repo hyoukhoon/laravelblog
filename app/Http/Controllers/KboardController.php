@@ -43,7 +43,8 @@ class KboardController extends Controller
         );
 
         if(Kboard::whereId($num)->update($form_data)){
-            return redirect('boards.view')->with($num);
+            //return redirect('boards.view')->with($num);
+            return redirect('boards')->with('success', 'Data is successfully updated');
         }else{
             return redirect('boards.edit')->with($num);
         }
