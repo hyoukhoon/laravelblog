@@ -2,8 +2,8 @@
 @section('content')
 <br />
      <form method="post" action="{{ route('boards.update', $boards->num) }}" enctype="multipart/form-data">
-                @csrf
-                @method('post')
+        @csrf
+        @method('post')
       <div class="form-group">
        <label class="col-md-4 text-right">제목</label>
        <div class="col-md-8">
@@ -20,7 +20,7 @@
       <br />
       <br />
       <br />
-      <div class="form-group text-center">
+      <div class="col-md-8 form-group text-center">
        <input type="submit" name="edit" class="btn btn-primary input-lg" value="수정" />
       </div>
      </form>
