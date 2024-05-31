@@ -5,26 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-/**
- * @property int      $num
- * @property int      $resetpass
- * @property boolean  $isAuth
- * @property boolean  $wronglogin
- * @property boolean  $isPush
- * @property boolean  $ismember
- * @property boolean  $isEmail
- * @property string   $email
- * @property string   $uid
- * @property string   $signtype
- * @property string   $photo
- * @property string   $passwd
- * @property string   $nickName
- * @property string   $mobile
- * @property string   $loginIp
- * @property DateTime $regDate
- * @property DateTime $lastLogin
- * @property DateTime $passUpDate
- */
+
 class Member extends Authenticatable
 {
     /**
