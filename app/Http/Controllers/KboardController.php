@@ -30,9 +30,23 @@ class KboardController extends Controller
         return view('boards.edit', compact('boards'));
     }
 
-    public function update($num)
+    public function update(Request $request, $num)
     {
-        
+        $request->validate([
+            'subject'    =>  'required',
+            'content'     =>  'required'
+        ]);
+
+        $form_data = array(
+            'subject'       =>   $request->subject,
+            'content'        =>   $request->content
+        );
+
+        if(Kboard::whereId($num)->update($form_data)){
+            return redirect('boards.view')->with($num);
+        }else{
+            return redirect('boards.edit')->with($num);
+        }
     }
 
     public function delete($num)
