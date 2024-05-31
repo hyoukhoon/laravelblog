@@ -10,7 +10,6 @@
             <form action="/logout" method="post" class="inline-block">
                 @csrf
                 <span class="text-xl text-blue-500">{{auth()->user()->nickName}}</span> / 
-                <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a> / 
                 <a href="{{route('auth.logout')}}"><button class="text-xl">로그아웃</button></a>
             </form>
         @endauth
@@ -21,6 +20,7 @@
     @show
 
     <h2 class="mt-4 mb-3">게시판 목록</h2>
+    <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
     <table class="table table-striped table-hover">
         <colgroup>
             <col width="10%"/>
