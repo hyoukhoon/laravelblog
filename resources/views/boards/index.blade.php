@@ -3,15 +3,14 @@
 
     @section('header')
     <header class="w-2/3 mx-auto mt-16 text-right">
-        <a href="{{route('boards.index')}}" class="text-xl">게시판</a>
         @guest()
             <a href="{{route('auth.login')}}" class="text-xl">로그인</a>
         @endguest
 
         @auth()
-            <span class="text-xl text-blue-500">{{auth()->user()->email}}</span>
-            <form action="/auth/logout" method="post" class="inline-block">
+            <form action="/logout" method="post" class="inline-block">
                 @csrf
+                <span class="text-xl text-blue-500">{{auth()->user()->email}}</span> / 
                 <a href="{{route('auth.logout')}}"><button class="text-xl">로그아웃</button></a>
             </form>
         @endauth
