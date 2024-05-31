@@ -42,12 +42,16 @@ class KboardController extends Controller
             'content'        =>   $request->content
         );
 
-        if(Kboard::whereId($num)->update($form_data)){
-            //return redirect('boards.view')->with($num);
-            return redirect('boards')->with('success', 'Data is successfully updated');
-        }else{
-            return redirect('boards.edit')->with($num);
-        }
+        $rs=Kboard::whereId($num)->update($form_data);
+
+        echo "rs=>".$rs;
+
+        // if(Kboard::whereId($num)->update($form_data)){
+        //     //return redirect('boards.view')->with($num);
+        //     return redirect('boards')->with('success', 'Data is successfully updated');
+        // }else{
+        //     return redirect('boards.edit')->with($num);
+        // }
     }
 
     public function delete($num)
