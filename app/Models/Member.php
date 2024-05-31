@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Foundation\Auth\User as Authenticatable;
 /**
  * @property int      $num
  * @property int      $resetpass
@@ -25,7 +25,7 @@ use Illuminate\Support\Facades\Hash;
  * @property DateTime $lastLogin
  * @property DateTime $passUpDate
  */
-class Member extends Model
+class Member extends Authenticatable
 {
     /**
      * The database table used by the model.
