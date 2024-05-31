@@ -9,7 +9,7 @@
         @auth()
             <form action="/logout" method="post" class="inline-block">
                 @csrf
-                <span class="text-xl text-blue-500">{{auth()->user()->name}}</span> / 
+                <span class="text-xl text-blue-500">{{auth()->user()->nickName}}</span> / 
                 <a href="{{route('auth.logout')}}"><button class="text-xl">로그아웃</button></a>
             </form>
         @endauth
