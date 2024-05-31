@@ -32,10 +32,6 @@ class KboardController extends Controller
 
     public function update(Request $request, $num)
     {
-        $request->validate([
-            'subject'    =>  'required',
-            'content'     =>  'required'
-        ]);
 
         $form_data = array(
             'subject'       =>   $request->subject,
