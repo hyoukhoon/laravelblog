@@ -14,7 +14,7 @@
       <div class="form-group">
        <label class="col-md-4 text-right">내용</label>
        <div class="col-md-8">
-            <textarea name="content" rows="10" cols="200">{{ $boards->content }}</textarea>
+            <textarea class="form-control" name="content" rows="10">{{ $boards->content }}</textarea>
        </div>
       </div>
       <br />
