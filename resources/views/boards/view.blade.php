@@ -18,6 +18,12 @@
         </tbody>
     </table>
     <div align="right">
+        @if($boards->email==auth()->user()->email)
+            <a href="{{ route('boards.update') }}" class="btn btn-default">수정</a>
+            <a href="{{ route('boards.delete') }}" class="btn btn-default">삭제</a>
+        @else
+
+        @endif
         <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
     </div>
 @endsection
