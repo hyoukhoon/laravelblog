@@ -16,6 +16,15 @@ class KboardController extends Controller
         return view('boards.index', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
+    public function write()
+    {
+        if(auth()->check()){
+            return view('boards.write');
+        }else{
+            return redirect()->back();
+        }
+    }
+
     public function show($num)
     {
         $boards = Kboard::findOrFail($num);
