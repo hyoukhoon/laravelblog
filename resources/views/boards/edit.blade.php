@@ -7,7 +7,7 @@
       <div class="form-group">
        <label class="col-md-4 text-right">제목</label>
        <div class="col-md-8">
-        <input type="text" name="first_name" value="{{ $boards->subject }}" class="form-control input-lg" />
+        <input type="text" name="subject" value="{{ $boards->subject }}" class="form-control input-lg" />
        </div>
       </div>
 
