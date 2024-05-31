@@ -55,6 +55,7 @@ class Kboard extends Model
      * @var string
      */
     protected $primaryKey = 'num';
+    const CREATED_AT = 'reg_date';
 
     /**
      * Attributes that should be mass-assignable.
