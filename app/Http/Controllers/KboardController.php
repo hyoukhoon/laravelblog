@@ -44,9 +44,9 @@ class KboardController extends Controller
         );
 
         if(Kboard::where('num', $num)->update($form_data)){
-            return redirect('boards.view')->with($num);
+            return redirect('/boards/show/')->with($num);
         }else{
-            return redirect('boards.edit')->with($num);
+            return redirect('/boards/edit/')->with($num);
         }
     }
 
