@@ -42,9 +42,10 @@ class KboardController extends Controller
             'content'        =>   $request->content
         );
 
-        $rs=Kboard::whereId($num)->update($form_data);
+        print_r($form_data);
+        print_r($num);
 
-        echo "rs=>".$rs;
+        //$rs=Kboard::whereId($num)->update($form_data);
 
         // if(Kboard::whereId($num)->update($form_data)){
         //     //return redirect('boards.view')->with($num);
