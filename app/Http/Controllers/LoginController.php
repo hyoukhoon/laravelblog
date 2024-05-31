@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Auth;
 use Log;
 
 class LoginController extends Controller
@@ -24,7 +25,13 @@ class LoginController extends Controller
         );
         //$ismember=Member::where($loginInfo)->exists();
         $ismember = Member::where($loginInfo)->first();
-        print_r($ismember);
+        //print_r($ismember);
+        if($ismember){
+            Auth::login($ismember);
+            return redirect() -> route('boards.index');
+        }else{
+            return redirect() -> route('auth.login');
+        }
 
         
         // if(auth() -> attempt($loginInfo)){
