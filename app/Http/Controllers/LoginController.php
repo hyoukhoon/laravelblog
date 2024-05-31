@@ -22,11 +22,10 @@ class LoginController extends Controller
             'email'       =>   $email,
             'passwd'        =>   $passwd
         );
-        //$loginInfo = $request -> only(['email', 'passwd']);
+        //$ismember=Member::where($loginInfo)->exists();
+        $ismember = Member::where($loginInfo)->first();
+        print_r($ismember);
 
-        $ismember=Member::where($loginInfo)->exists();
-
-        echo "member -> ".$ismember;
         
         // if(auth() -> attempt($loginInfo)){
         //     return redirect() -> route('boards.index');
