@@ -19,8 +19,8 @@
     </table>
     <div align="right">
         @if($boards->email==auth()->user()->email)
-            <a href="{{ route('boards.index') }}" class="btn btn-default">수정</a>
-            <a href="{{ route('boards.index') }}" class="btn btn-default">삭제</a>
+            <a href="/boards/edit/{{ $boards->num }}" class="btn btn-default">수정</a>
+            <a href="/boards/delete/{{ $boards->num }}" class="btn btn-default">삭제</a>
         @else
 
         @endif

@@ -24,6 +24,11 @@ class KboardController extends Controller
         return view('boards.view', compact('boards'));
     }
 
+    public function edit($num)
+    {
+        
+    }
+
     public function update($num)
     {
         
