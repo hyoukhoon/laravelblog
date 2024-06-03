@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kboard;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Log;
 
 class KboardController extends Controller
@@ -30,7 +31,8 @@ class KboardController extends Controller
         $form_data = array(
             'subject' => $request->subject,
             'content' => $request->content,
-            'email' => auth()->user()->email
+            'name' => Auth::user()->name,
+            'email' => Auth::user()->email
         );
 
         Kboard::create($form_data);
