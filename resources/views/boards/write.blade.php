@@ -23,7 +23,7 @@
       <br />
       <div class="col-md-8 form-group text-center">
        {{-- <input type="submit" name="edit" class="btn btn-primary input-lg" value="등록" /> --}}
-       <input type="button" name="edit" class="btn btn-primary input-lg" onclick="sendsubmit()" />등록</button>
+       <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendsubmit()">등록</button>
       </div>
      </form>
 <script>
