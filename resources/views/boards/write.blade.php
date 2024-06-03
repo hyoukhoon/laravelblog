@@ -42,7 +42,7 @@
                dataType: 'json',
                data: data,
                success: function(data) {
-                    console.log(data);
+                    location.href='/boards/show/'+data.num;
                },
                error: function(data) {
                     console.log("error" +data);
