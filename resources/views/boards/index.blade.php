@@ -47,7 +47,7 @@
                 <td>{{$board->cnt}}</td>
                 {{-- <td>{{$board->reg_date->format("Y-m-d")}}</td> --}}
                 {{-- <td>{{ disptime($board->reg_date) }}</td> --}}
-                <td>{{ strtotime($board->reg_date); }}</td>
+                <td>{{ time() }}</td>
             </tr>
         @endforeach
         </tbody>
