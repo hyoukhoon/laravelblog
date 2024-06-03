@@ -32,7 +32,8 @@ class KboardController extends Controller
             'subject' => $request->subject,
             'content' => $request->content,
             'name' => Auth::user()->nickName,
-            'email' => Auth::user()->email
+            'email' => Auth::user()->email,
+            'isdisp' => 1
         );
 
         Kboard::create($form_data);
@@ -42,6 +43,7 @@ class KboardController extends Controller
 
     public function show($num)
     {
+        Kboard::table('kboard')->increment('cnt', 1, ['num' => $num]);
         $boards = Kboard::findOrFail($num);
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
