@@ -62,7 +62,7 @@ class Kboard extends Model
      * @var array
      */
     protected $fillable = [
-        'subject', 'content', 'email'
+        'subject', 'content', 'email', 'name'
     ];
 
     /**
