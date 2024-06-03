@@ -38,7 +38,9 @@ class KboardController extends Controller
 
         Kboard::create($form_data);
 
-        return redirect('/boards')->with('success', 'Data Added successfully.');
+        return response()->json(array('msg'=> "succ"), 200);
+
+        //return redirect('/boards')->with('success', 'Data Added successfully.');
     }
 
     public function show($num)
