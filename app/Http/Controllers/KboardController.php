@@ -36,9 +36,9 @@ class KboardController extends Controller
             'isdisp' => 1
         );
 
-        Kboard::create($form_data);
+        $num=Kboard::create($form_data);
 
-        return response()->json(array('msg'=> "succ"), 200);
+        return response()->json(array('msg'=> "succ", 'num'=>$num), 200);
 
         //return redirect('/boards')->with('success', 'Data Added successfully.');
     }
