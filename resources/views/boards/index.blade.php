@@ -46,7 +46,8 @@
                 <td><a href="{{ route('boards.show', $board->num) }}">{{$board->subject}}</a></td>
                 <td>{{$board->cnt}}</td>
                 {{-- <td>{{$board->reg_date->format("Y-m-d")}}</td> --}}
-                <td>{{ disptime($board->reg_date) }}</td>
+                {{-- <td>{{ disptime($board->reg_date) }}</td> --}}
+                <td>{{ echo time() - strtotime($board->reg_date); }}</td>
             </tr>
         @endforeach
         </tbody>
