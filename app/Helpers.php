@@ -2,7 +2,7 @@
 
 function disptime($regdate){
 
-    $sec = time() - strtotime($regdate);
+    $sec = strtotime(date("Y-m-d H:i:s")) - strtotime($regdate);
     if ($sec < 60) {
         $dispdates = $sec."초 전";
     } else if ($sec > 60 && $sec < 3600) {
