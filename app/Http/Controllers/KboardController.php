@@ -31,7 +31,7 @@ class KboardController extends Controller
         $form_data = array(
             'subject' => $request->subject,
             'content' => $request->content,
-            'name' => Auth::user()->name,
+            'name' => Auth::user()->nickName,
             'email' => Auth::user()->email
         );
 
