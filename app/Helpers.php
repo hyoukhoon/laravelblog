@@ -2,6 +2,7 @@
 
 function disptime($regdate){
 
+    $regdate = new \DateTime($regdate);
     $sec = time() - strtotime($regdate);
     if ($sec < 60) {
         $dispdates = $sec."초 전";
