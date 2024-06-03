@@ -28,8 +28,9 @@ class KboardController extends Controller
     public function create(Request $request)
     {
         $form_data = array(
-            'subject'       =>   $request->subject,
-            'content'        =>   $request->content
+            'subject' => $request->subject,
+            'content' => $request->content,
+            'email' => auth()->user()->email
         );
 
         Kboard::create($form_data);
