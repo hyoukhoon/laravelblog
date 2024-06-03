@@ -43,7 +43,7 @@ class KboardController extends Controller
 
     public function show($num)
     {
-        Kboard::table('kboard')->increment('cnt', 1, ['num' => $num]);
+        Kboard::find($num)->increment('cnt');
         $boards = Kboard::findOrFail($num);
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
