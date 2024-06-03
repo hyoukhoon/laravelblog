@@ -55,7 +55,6 @@ class Kboard extends Model
      * @var string
      */
     protected $primaryKey = 'num';
-    const CREATED_AT = 'reg_date';
 
     /**
      * Attributes that should be mass-assignable.
@@ -63,7 +62,7 @@ class Kboard extends Model
      * @var array
      */
     protected $fillable = [
-        'subject', 'content', 'email', 'ip', 'isdisp', 'isimg', 'memo_cnt'
+        'num','subject', 'content', 'email', 'ip', 'isdisp', 'isimg', 'memo_cnt'
     ];
 
     /**
