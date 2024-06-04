@@ -106,10 +106,10 @@ class KboardController extends Controller
     public function saveimage(Request $request)
     {
         $request->validate([
-            'afile' => 'required|image|max:2048'
+            'file' => 'required|image|max:2048'
         ]);
 
-        $image = $request->file('afile');
+        $image = $request->file('file');
         $new_name = rand().'_'.date("YmdHis").'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         return response()->json(array('msg'=> "succ", 'fn'=>$new_name), 200);
