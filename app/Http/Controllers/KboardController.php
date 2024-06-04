@@ -110,7 +110,7 @@ class KboardController extends Controller
         ]);
 
         $image = $request->file('file');
-        $new_name = rand().'_'.date("YmdHis").'.'.$image->getClientOriginalExtension();
+        $new_name = rand().'_'.time().'.'.$image->getClientOriginalExtension();
         $image->move(public_path('images'), $new_name);
         return response()->json(array('msg'=> "succ", 'fn'=>$new_name), 200);
     }
