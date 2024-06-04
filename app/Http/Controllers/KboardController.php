@@ -86,4 +86,21 @@ class KboardController extends Controller
         return redirect('/boards')->with('success', 'Data is successfully deleted');
     }
 
+    public function memoup(Request $request)
+    {
+        $form_data = array(
+            'memo' => $request->memo,
+            'parent' => $request->parent,
+            'name' => Auth::user()->nickName,
+            'email' => Auth::user()->email,
+            'isdisp' => 1
+        );
+
+        $rs=Kboard::create($form_data);
+
+        return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
+
+        //return redirect('/boards')->with('success', 'Data Added successfully.');
+    }
+
 }

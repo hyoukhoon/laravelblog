@@ -33,9 +33,32 @@
                     <textarea class="form-control" name="memo" id="memo" rows="3"></textarea>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary" id="memoup">등록</button>
+                    <button type="button" class="btn btn-primary" id="memoup" onclick="memoup()">등록</button>
                 </td>
             </tr>
         </table>
     </div>
+    <script>
+        function memoup(){
+             var memo=$("#memo").val();
+             var data = {
+                  memo : memo,
+                  parent : {{ $boards->num }}
+             };
+             $.ajax({
+                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                  type: 'post',
+                  url: '{{ route('boards.memoup') }}',
+                  dataType: 'json',
+                  data: data,
+                  success: function(data) {
+                       location.href='/boards/show/'+data.num;
+                  },
+                  error: function(data) {
+                       console.log("error" +data);
+                  }
+             });
+        }
+   </script>
+
 @endsection
