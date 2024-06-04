@@ -39,6 +39,7 @@ Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/write', [KboardController::class, 'write'])->name('boards.write');
 Route::post('/boards/create', [KboardController::class, 'create'])->name('boards.create');
+Route::post('/boards/saveimage', [KboardController::class, 'saveimage'])->name('boards.saveimage');
 Route::post('/boards/memoup', [KboardController::class, 'memoup'])->name('boards.memoup');
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
 Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');

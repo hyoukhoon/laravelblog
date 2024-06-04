@@ -5,6 +5,7 @@
      <form method="post" action="{{ route('boards.create') }}" enctype="multipart/form-data">
         @csrf
         @method('post')
+        <input type="hidden" name="attcnt" id="attcnt" value="0">
       <div class="form-group">
        <label class="col-md-4 text-right">제목</label>
        <div class="col-md-8">
@@ -52,13 +53,13 @@ $("#afile").change(function(){
 });   
 
 function attachFile(file) {
-    var formData = new FormData();
+     var formData = new FormData();
 	var num=$("#num").val();
-    formData.append("file", file);
+     formData.append("file", file);
 	formData.append("uptype", "attach");
 	formData.append("num", num);
-    $.ajax({
-        url: '/board/saveImage.php',
+     $.ajax({
+        url: '{{ route('boards.saveimage') }}',
         data: formData,
         cache: false,
         contentType: false,
@@ -79,12 +80,8 @@ function attachFile(file) {
 			}else{
                 //var img="<img src='"+data+"' width='50'><br>";
 				var html = "<div id='"+return_data.fn+"' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='"+return_data.savename+"' style='width:100px;'><div class='card-body'><button type='button' class='btn btn-warning' onclick=\"file_del('"+return_data.filename+"')\">삭제</button></div></div>";
-                $("#attachFiles").append(html);
+                    $("#attachFiles").append(html);
 				
-                //$summernote.summernote('insertImage', data, function //($image) {
-				//	$image.attr('src', data);
-				//	$image.attr('class', 'childImg');
-				//});
 				var rcnt=parseInt(attcnt)+1;
 				$("#attcnt").val(rcnt);
 				var attachFile=$("#attachFile").val();
