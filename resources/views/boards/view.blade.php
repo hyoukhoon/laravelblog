@@ -26,4 +26,16 @@
         @endif
         <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
     </div>
+    <div>
+        <table class="table table-bordered">
+            <tr>
+                <td>
+                    <textarea class="form-control" name="memo" id="memo" rows="3"></textarea>
+                </td>
+                <td>
+                    <button type="button" class="btn btn-primary" id="memoup">등록</button>
+                </td>
+            </tr>
+        </table>
+    </div>
 @endsection
