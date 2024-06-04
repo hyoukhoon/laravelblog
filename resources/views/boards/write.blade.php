@@ -79,7 +79,7 @@ function attachFile(file) {
 				return false;
 			}else{
                 //var img="<img src='"+data+"' width='50'><br>";
-				var html = "<div id='"+return_data.fn+"' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='"+{{ URL::to('/') }}+"/images/"+return_data.fn+"' width='100' /><div class='card-body'><button type='button' class='btn btn-warning' onclick=\"file_del('"+return_data.fn+"')\">삭제</button></div></div>";
+				var html = "<div id='"+return_data.fn+"' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='/images/"+return_data.fn+"' width='100' /><div class='card-body'><button type='button' class='btn btn-warning' onclick=\"file_del('"+return_data.fn+"')\">삭제</button></div></div>";
                     $("#attachFiles").append(html);
 				
 				var rcnt=parseInt(attcnt)+1;
