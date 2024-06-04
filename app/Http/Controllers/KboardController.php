@@ -105,19 +105,14 @@ class KboardController extends Controller
 
     public function saveimgae(Request $request)
     {
-        $form_data = array(
-            'memo' => $request->memo,
-            'parent' => $request->parent,
-            'name' => Auth::user()->nickName,
-            'email' => Auth::user()->email,
-            'isdisp' => 1
-        );
+        $request->validate([
+            'afile' => 'required|image|max:2048'
+        ]);
 
-        $rs=Kboard::create($form_data);
-
-        return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
-
-        //return redirect('/boards')->with('success', 'Data Added successfully.');
+        $image = $request->file('afile');
+        $new_name = rand().'_'.date("YmdHis").'.'.$image->getClientOriginalExtension();
+        $image->move(public_path('images'), $new_name);
+        return response()->json(array('msg'=> "succ", 'fn'=>$new_name), 200);
     }
 
 }
