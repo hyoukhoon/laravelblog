@@ -103,7 +103,7 @@ class KboardController extends Controller
         //return redirect('/boards')->with('success', 'Data Added successfully.');
     }
 
-    public function saveimgae(Request $request)
+    public function saveimage(Request $request)
     {
         $request->validate([
             'afile' => 'required|image|max:2048'
