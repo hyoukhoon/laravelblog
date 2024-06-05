@@ -28,7 +28,7 @@
     </div>
     <div>
         <table class="table table-bordered">
-            @foreach ($memos => $m)
+            @foreach ($memos as $key => $m)
             <tr>
                 <td>
                     {{ $m->name }}
