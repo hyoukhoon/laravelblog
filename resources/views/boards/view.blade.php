@@ -26,20 +26,7 @@
         @endif
         <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
     </div>
-    <div>
-        <table class="table table-bordered">
-            @foreach ($memos as $key => $m)
-            <tr>
-                <td>
-                    {{ $m->name }}
-                </td>
-                <td>
-                    {{ $m->memo }}
-                </td>
-            </tr>
-            @endforeach
-        </table>
-    </div>
+    
     <div>
         <table class="table table-bordered">
             <tr>
@@ -50,6 +37,21 @@
                     <button type="button" class="btn btn-primary" id="memoup" onclick="memoup()">등록</button>
                 </td>
             </tr>
+        </table>
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            @foreach ($memos as $key => $m)
+            <tr>
+                <td width="100">
+                    {{ $m->name }}
+                </td>
+                <td>
+                    {{ $m->memo }}
+                </td>
+            </tr>
+            @endforeach
         </table>
     </div>
     <script>
