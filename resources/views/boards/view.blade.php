@@ -201,6 +201,7 @@
     $("#upfile").change(function(){
         var formData = new FormData();
         var files = $('#upfile').prop('files');
+        console.log("files=>"+JSON.stringify(files));
         for(var i=0; i < files.length; i++) {
             attachFile(files[i]);
         }
