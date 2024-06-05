@@ -94,8 +94,7 @@ class KboardController extends Controller
 
     public function memodelete(Request $request)
     {
-        $data = new memo();
-        $data->id = $request->id;
+        $data = memo::findOrFail($request->id);
         $rs = $data->delete();
 
         if($rs){
