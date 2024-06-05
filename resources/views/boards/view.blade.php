@@ -197,7 +197,7 @@
         }
 
         function reply_write(m, b){
-            $("#memo_reply_area_"+m).show();
+            $("#memo_reply_area_"+m).toggle();
         }
    </script>
 
