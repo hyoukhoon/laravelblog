@@ -93,20 +93,20 @@ class KboardController extends Controller
 
     public function memoup(Request $request)
     {
-        $form_data = array(
-            'memo' => $request->memo,
-            'bid' => $request->bid,
-            'pid' => $request->pid??null,
-            'name' => Auth::user()->nickName,
-            'userid' => Auth::user()->email
-        );
+        // $form_data = array(
+        //     'memo' => $request->memo,
+        //     'bid' => $request->bid,
+        //     'pid' => $request->pid??null,
+        //     'name' => Auth::user()->nickName,
+        //     'userid' => Auth::user()->email
+        // );
 
         //$rs=memo::create($form_data); 여기서 $rs는 입력한 전체 값을 리턴
 
         $insert_data = new memo();
         $insert_data->memo = $request->memo;
         $insert_data->bid = $request->bid;
-        $insert_data->pid = $request->pid??0;
+        $insert_data->pid = $request->pid??null;
         $insert_data->name = Auth::user()->nickName;
         $insert_data->userid = Auth::user()->email;
 
