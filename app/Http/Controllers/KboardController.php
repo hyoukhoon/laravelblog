@@ -92,6 +92,19 @@ class KboardController extends Controller
         return redirect('/boards')->with('success', 'Data is successfully deleted');
     }
 
+    public function memodelete(Request $request)
+    {
+        $data = new memo();
+        $data->id = $request->id;
+        $rs = $data->delete();
+
+        if($rs){
+            Kboard::find($request->bid)->decrement('memo_cnt');
+        }
+
+        return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+    }
+
     public function memoup(Request $request)
     {
         // $form_data = array(
