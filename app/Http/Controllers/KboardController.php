@@ -51,7 +51,7 @@ class KboardController extends Controller
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
 
-        $memos = memo::where('bid', $num)
+        $memos = memo::where(['bid' => $num, 'pid' => 0])
                ->orderBy('id', 'asc')
                ->get();
         return view('boards.view', ['boards' => $boards, 'memos' => $memos]);
@@ -96,7 +96,7 @@ class KboardController extends Controller
         $form_data = array(
             'memo' => $request->memo,
             'bid' => $request->bid,
-            'pid' => $request->pid??0,
+            'pid' => $request->pid??null,
             'name' => Auth::user()->nickName,
             'userid' => Auth::user()->email
         );

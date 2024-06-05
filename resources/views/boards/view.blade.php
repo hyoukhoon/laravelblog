@@ -174,25 +174,25 @@
 
     <script>
         function memoup(){
-             var memo=$("#memo").val();
-             var data = {
-                  memo : memo,
-                  bid : {{ $boards->num }}
-             };
-             $.ajax({
-                  headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                  type: 'post',
-                  url: '{{ route('boards.memoup') }}',
-                  dataType: 'json',
-                  data: data,
-                  success: function(data) {
-                    console.log(JSON.stringify(data));
-                    location.reload();
-                  },
-                  error: function(data) {
-                    console.log("error" +JSON.stringify(data));
-                  }
-             });
+            var memo=$("#memo").val();
+            var data = {
+                memo : memo,
+                bid : {{ $boards->num }}
+            };
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: 'post',
+                url: '{{ route('boards.memoup') }}',
+                dataType: 'json',
+                data: data,
+                success: function(data) {
+                console.log(JSON.stringify(data));
+                location.reload();
+                },
+                error: function(data) {
+                console.log("error" +JSON.stringify(data));
+                }
+            });
         }
 
         function reply_write(m, b){
