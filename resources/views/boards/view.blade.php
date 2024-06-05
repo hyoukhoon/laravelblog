@@ -39,7 +39,7 @@
     <!--댓글 시작 -->
     <div id="reply">
         @foreach ($memos as $key => $m)
-        <div class="card mt-2" id="memolist_30">
+        <div class="card mt-2" id="{{ 'memolist_'.$m->memoid }}">
             <div class="card-header p-2">
                 <table>
                     <tbody>
