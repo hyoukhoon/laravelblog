@@ -51,7 +51,7 @@ class KboardController extends Controller
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
 
-        $memos = memo::where('pid', $num)
+        $memos = memo::where('bid', $num)
                ->orderBy('id', 'asc')
                ->get();
         return view('boards.view', ['boards' => $boards, 'memos' => $memos]);
@@ -95,8 +95,8 @@ class KboardController extends Controller
     {
         $form_data = array(
             'memo' => $request->memo,
-            'bid' => $request->bid??0,
-            'pid' => $request->pid,
+            'bid' => $request->bid,
+            'pid' => $request->pid??0,
             'name' => Auth::user()->nickName,
             'userid' => Auth::user()->email
         );
@@ -105,15 +105,15 @@ class KboardController extends Controller
 
         $insert_data = new memo();
         $insert_data->memo = $request->memo;
-        $insert_data->bid = $request->bid??0;
-        $insert_data->pid = $request->pid;
+        $insert_data->bid = $request->bid;
+        $insert_data->pid = $request->pid??0;
         $insert_data->name = Auth::user()->nickName;
         $insert_data->userid = Auth::user()->email;
 
         $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
         if($rs){
-            Kboard::find($request->pid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
-            Kboard::where('num', $request->pid)->update([//부모글의 댓글 날짜 업데이트
+            Kboard::find($request->bid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
+            Kboard::where('num', $request->bid)->update([//부모글의 댓글 날짜 업데이트
                 'memo_date' => date('Y-m-d H:i:s')
             ]);
         }

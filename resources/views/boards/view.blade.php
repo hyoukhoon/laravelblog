@@ -74,9 +74,8 @@
                 </svg>
             </div>
             <input type="hidden" name="memoid" id="memoid" value="{{ $m->id }}">
-            <input type="hidden" name="bid" id="bid" value="{{ $boards->num }}">
             <textarea class="form-control" aria-label="With textarea" name="{{ 'memo_'.$m->id }}" id="{{ 'memo_'.$m->id }}" placeholder="대댓글을 입력해주세요"></textarea>
-            <button type="button" class="btn btn-secondary" style="float:right;" id="{{ 'memo_submit_reply_'.$m->id }}" onclick="memo_submit_reply()">입력</button>
+            <button type="button" class="btn btn-secondary" style="float:right;" id="{{ 'memo_submit_reply_'.$m->id }}" onclick="memo_submit_reply('{{ $m->id }}','{{ $boards->num }}')">입력</button>
         </div>
         @endforeach
     </div>
@@ -178,7 +177,7 @@
              var memo=$("#memo").val();
              var data = {
                   memo : memo,
-                  pid : {{ $boards->num }}
+                  bid : {{ $boards->num }}
              };
              $.ajax({
                   headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
