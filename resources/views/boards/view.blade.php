@@ -67,7 +67,7 @@
                 <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('30','4513')">삭제</a></span>
             </div>
         </div>
-        <div class="input-group" style="margin-top:10px;margin-bottom:10px;" id="memo_reply_area_35">
+        <div class="input-group" style="margin-top:10px;margin-bottom:10px;display:none;" id="memo_reply_area_35">
             <div class="p-2">
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-return-right" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M1.5 1.5A.5.5 0 0 0 1 2v4.8a2.5 2.5 0 0 0 2.5 2.5h9.793l-3.347 3.346a.5.5 0 0 0 .708.708l4.2-4.2a.5.5 0 0 0 0-.708l-4-4a.5.5 0 0 0-.708.708L13.293 8.3H3.5A1.5 1.5 0 0 1 2 6.8V2a.5.5 0 0 0-.5-.5z"></path>
