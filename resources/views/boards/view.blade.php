@@ -195,6 +195,10 @@
                   }
              });
         }
+
+        function reply_write(m, b){
+            $('memo_reply_area_'+m).show();
+        }
    </script>
 
 @endsection
