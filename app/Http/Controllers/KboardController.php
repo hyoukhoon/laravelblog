@@ -97,7 +97,7 @@ class KboardController extends Controller
             'userid' => Auth::user()->email
         );
 
-        //$rs=memo::create($form_data);
+        //$rs=memo::create($form_data); 여기서 $rs는 입력한 전체 값을 리턴
 
         $insert_data = new memo();
         $insert_data->memo = $request->memo;
@@ -106,7 +106,10 @@ class KboardController extends Controller
         $insert_data->name = Auth::user()->nickName;
         $insert_data->userid = Auth::user()->email;
 
-        $rs = $insert_data->save(); // save 메소드 호출
+        $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
+        if($rs){
+            Kboard::find($request->pid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
+        }
 
         return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
     }
