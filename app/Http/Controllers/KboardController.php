@@ -114,7 +114,7 @@ class KboardController extends Controller
         if($rs){
             Kboard::find($request->pid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
             $updata = Kboard::where('num', $request->pid)->update([
-                'datetime' => date('Y-m-d H:i:s')
+                'memo_date' => date('Y-m-d H:i:s')
             ]);
             //Kboard::find($request->pid)->update(['memo_date' => date('Y-m-d H:i:s')]);//부모글의 댓글 날짜 업데이트
         }
