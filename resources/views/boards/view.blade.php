@@ -197,8 +197,7 @@
         }
 
         function reply_write(m, b){
-            alert("m:"+m);
-            $('memo_reply_area_'+m).show();
+            $("#memo_reply_area_"+m).show();
         }
    </script>
 
