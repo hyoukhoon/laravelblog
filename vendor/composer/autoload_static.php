@@ -557,6 +557,7 @@ class ComposerStaticInitb505c1f02886265b3473a12137fedf35
         'App\\Models\\User' => __DIR__ . '/../..' . '/app/Models/User.php',
         'App\\Models\\XcMember' => __DIR__ . '/../..' . '/app/Models/XcMember.php',
         'App\\Models\\XcQna' => __DIR__ . '/../..' . '/app/Models/XcQna.php',
+        'App\\Models\\memo' => __DIR__ . '/../..' . '/app/Models/memo.php',
         'App\\Models\\product' => __DIR__ . '/../..' . '/app/Models/product.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',

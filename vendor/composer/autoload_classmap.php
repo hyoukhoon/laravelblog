@@ -31,6 +31,7 @@ return array(
     'App\\Models\\User' => $baseDir . '/app/Models/User.php',
     'App\\Models\\XcMember' => $baseDir . '/app/Models/XcMember.php',
     'App\\Models\\XcQna' => $baseDir . '/app/Models/XcQna.php',
+    'App\\Models\\memo' => $baseDir . '/app/Models/memo.php',
     'App\\Models\\product' => $baseDir . '/app/Models/product.php',
     'App\\Providers\\AppServiceProvider' => $baseDir . '/app/Providers/AppServiceProvider.php',
     'App\\Providers\\AuthServiceProvider' => $baseDir . '/app/Providers/AuthServiceProvider.php',
