@@ -52,7 +52,7 @@ class KboardController extends Controller
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
 
         $memos = memo::where('bid', $num)
-            ->orderByRaw('ifnull(pid,id)', 'asc')
+            ->orderByRaw('IFNULL(pid,id), pid ASC')
             ->orderBy('id', 'asc')
             ->get();
         return view('boards.view', ['boards' => $boards, 'memos' => $memos]);
