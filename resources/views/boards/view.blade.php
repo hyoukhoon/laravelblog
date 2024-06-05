@@ -52,10 +52,11 @@
                   dataType: 'json',
                   data: data,
                   success: function(data) {
-                       location.reload();
+                    console.log(JSON.stringify(data));
+                    location.reload();
                   },
                   error: function(data) {
-                       console.log("error" +JSON.stringify(data));
+                    console.log("error" +JSON.stringify(data));
                   }
              });
         }

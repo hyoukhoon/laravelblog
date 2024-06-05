@@ -97,11 +97,18 @@ class KboardController extends Controller
             'userid' => Auth::user()->email
         );
 
-        $rs=memo::create($form_data);
+        //$rs=memo::create($form_data);
 
-        return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
+        $insert_data = new memo();
+        $insert_data->memo = $request->memo;
+        $insert_data->bid = $request->bid??0;
+        $insert_data->pid = $request->pid;
+        $insert_data->name = Auth::user()->nickName;
+        $insert_data->userid = Auth::user()->email;
 
-        //return redirect('/boards')->with('success', 'Data Added successfully.');
+        $rs = $insert_data->save(); // save 메소드 호출
+
+        return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
     }
 
     public function saveimage(Request $request)
