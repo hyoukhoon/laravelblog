@@ -27,17 +27,15 @@
         <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
     </div>
     
-    <div>
-        <table class="table table-bordered">
-            <tr>
-                <td>
-                    <textarea class="form-control" name="memo" id="memo" rows="3"></textarea>
-                </td>
-                <td>
-                    <button type="button" class="btn btn-primary" id="memoup" onclick="memoup()">등록</button>
-                </td>
-            </tr>
-        </table>
+    <div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;">
+		<input type="hidden" name="memo_file" id="memo_file">
+		<span class="input-group-text" id="memo_image_view" style="display:none;"></span>
+		<button type="button" id="togglememoimage" class="btn btn-seconday">
+			이미지첨부
+		  </button>
+		  <input type="file" name="upfile" id="upfile" accept="image/*" style="display:none;">
+		  <textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memo" id="memo" placeholder="댓글을 입력해주세요"></textarea>
+		  <button type="button" class="btn btn-secondary" style="float:right;" id="memo_submit" onclick="memoup()">입력</button>
     </div>
 
     <div>
