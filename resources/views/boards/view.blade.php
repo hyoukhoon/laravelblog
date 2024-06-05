@@ -193,6 +193,79 @@
             });
         }
 
+
+    $("#memo_image").click(function () {
+		$('#upfile').click();
+    });
+    
+    $("#upfile").change(function(){
+        var formData = new FormData();
+        var files = $('#upfile').prop('files');
+        attachFile(files);
+    });
+
+    function attachFile(file) {
+    var formData = new FormData();
+    formData.append("file", file);
+    $.ajax({
+        url: '{{ route('boards.saveimage') }}',
+        data: formData,
+        cache: false,
+        contentType: false,
+        processData: false,
+		dataType : 'json' ,
+        type: 'POST',
+        success: function (return_data) {
+			console.log(JSON.stringify(return_data));
+			if(return_data.result=='image'){
+				alert('용량이 너무크거나 이미지 파일이 아닙니다.');
+				return;
+			}else if(return_data.result=='gif'){
+				alert(return_data.msg);
+				return;
+			}else{
+				var html = "<img src='"+return_data.fn+"' style='max-width:100%;height:88px;'>";
+				//console.log("memoid=>"+memoid);
+					$("#memo_image_view").html(html);
+					$("#memo_image_view").show();
+					$("#attmemoimg").hide();
+					$("#memo_file").val(return_data.fn);
+			}
+        }
+		, beforeSend: function () {
+              var width = 0;
+              var height = 0;
+              var left = 0;
+              var top = 0;
+              width = 50;
+              height = 50;
+
+			  top = ( $(window).height() - height ) / 2 + $(window).scrollTop();
+              left = ( $(window).width() - width ) / 2 + $(window).scrollLeft();
+
+              if($("#div_ajax_load_image").length != 0) {
+                     $("#div_ajax_load_image").css({
+                            "top": top+"px",
+                            "left": left+"px"
+                     });
+                     $("#div_ajax_load_image").show();
+              }
+              else {
+				  if(memoid){
+						$("#memo_reply_image_"+memoid).html('<div id="div_ajax_load_image" style="width:' + width + 'px; height:' + height + 'px; z-index:9999; " class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>');
+				  }else{
+						$('#togglememoimage').html('<div id="div_ajax_load_image" style="width:' + width + 'px; height:' + height + 'px; z-index:9999; " class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>');
+				  }
+              }
+
+       }
+	    , complete: function () {
+                     $("#div_ajax_load_image").hide();
+       }
+    });
+
+}
+
    </script>
 
 @endsection
