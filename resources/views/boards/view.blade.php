@@ -43,7 +43,7 @@
              var memo=$("#memo").val();
              var data = {
                   memo : memo,
-                  parent : {{ $boards->num }}
+                  pid : {{ $boards->num }}
              };
              $.ajax({
                   headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
@@ -52,7 +52,7 @@
                   dataType: 'json',
                   data: data,
                   success: function(data) {
-                       location.href='/boards/show/'+data.num;
+                       location.reload();
                   },
                   error: function(data) {
                        console.log("error" +data);

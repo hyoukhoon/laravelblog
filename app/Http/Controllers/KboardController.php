@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\Kboard;
+use App\Models\memo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
@@ -90,13 +91,13 @@ class KboardController extends Controller
     {
         $form_data = array(
             'memo' => $request->memo,
-            'parent' => $request->parent,
+            'bid' => $request->bid??0,
+            'pid' => $request->pid,
             'name' => Auth::user()->nickName,
-            'email' => Auth::user()->email,
-            'isdisp' => 1
+            'userid' => Auth::user()->email
         );
 
-        $rs=Kboard::create($form_data);
+        $rs=memo::create($form_data);
 
         return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
 
