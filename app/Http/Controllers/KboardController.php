@@ -50,7 +50,11 @@ class KboardController extends Controller
         $boards = Kboard::findOrFail($num);
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
-        return view('boards.view', compact('boards'));
+
+        $memos = memo::where('pid', $num)
+               ->orderBy('id', 'desc')
+               ->get();
+        return view('boards.view', ['boards' => $boards, 'memos' => $memos]);
     }
 
     public function edit($num)

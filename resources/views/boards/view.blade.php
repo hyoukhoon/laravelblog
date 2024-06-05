@@ -28,6 +28,20 @@
     </div>
     <div>
         <table class="table table-bordered">
+            @foreach ($memos => $m)
+            <tr>
+                <td>
+                    {{ $m->name }}
+                </td>
+                <td>
+                    {{ $m->memo }}
+                </td>
+            </tr>
+            @endforeach
+        </table>
+    </div>
+    <div>
+        <table class="table table-bordered">
             <tr>
                 <td>
                     <textarea class="form-control" name="memo" id="memo" rows="3"></textarea>
