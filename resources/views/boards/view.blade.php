@@ -38,6 +38,39 @@
 		  <button type="button" class="btn btn-secondary" style="float:right;" id="memo_submit" onclick="memoup()">입력</button>
     </div>
 
+    <!--댓글 시작 -->
+    <div id="reply">
+        @foreach ($memos as $key => $m)
+        <div class="card mt-2" id="memolist_30">
+            <div class="card-header p-2">
+                <table>
+                    <tbody>
+                        <tr class="align-middle">
+                            <td rowspan="2" class="pr-2">
+                                댓글:
+                            </td>
+                            <td class="ml">{{ $m->name }}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <font size="2">{{ $m->regdate }}</font> 
+                                    <span style="cursor:pointer" onclick="#"></span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="card-body">
+                <p class="card-text">{!! nl2br($m->memo) !!}</p>
+                <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_write('30','4513')">답글</a></span>
+                <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('30','4513')">삭제</a></span>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    <!-- 댓글 끝 -->
+
     <div id="reply">
         <!--댓글 시작 -->
         <div class="card mt-2" id="memolist_30">

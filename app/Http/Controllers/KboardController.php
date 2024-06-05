@@ -113,10 +113,9 @@ class KboardController extends Controller
         $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
         if($rs){
             Kboard::find($request->pid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
-            $updata = Kboard::where('num', $request->pid)->update([
+            Kboard::where('num', $request->pid)->update([//부모글의 댓글 날짜 업데이트
                 'memo_date' => date('Y-m-d H:i:s')
             ]);
-            //Kboard::find($request->pid)->update(['memo_date' => date('Y-m-d H:i:s')]);//부모글의 댓글 날짜 업데이트
         }
 
         return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
