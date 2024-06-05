@@ -201,7 +201,9 @@
     $("#upfile").change(function(){
         var formData = new FormData();
         var files = $('#upfile').prop('files');
-        attachFile(files);
+        for(var i=0; i < files.length; i++) {
+            attachFile(files[i]);
+        }
     });
 
     function attachFile(file) {
