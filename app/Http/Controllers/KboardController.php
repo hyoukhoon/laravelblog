@@ -118,6 +118,7 @@ class KboardController extends Controller
 
         $insert_data = new memo();
         $insert_data->memo = $request->memo;
+        $insert_data->memo_file = $request->memo_file??null;
         $insert_data->bid = $request->bid;
         $insert_data->pid = $request->pid??null;
         $insert_data->name = Auth::user()->nickName;
