@@ -55,7 +55,7 @@
                        location.reload();
                   },
                   error: function(data) {
-                       console.log("error" +data);
+                       console.log("error" +JSON.stringify(data));
                   }
              });
         }
