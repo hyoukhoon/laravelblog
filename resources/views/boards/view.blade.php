@@ -44,7 +44,7 @@
         <table class="table table-bordered">
             @foreach ($memos as $key => $m)
             <tr>
-                <td width="100">
+                <td width="200">
                     {{ $m->name }}
                 </td>
                 <td>
