@@ -59,7 +59,6 @@
                             </tbody></table>
                         </div>
                         <div class="card-body">
-                            
                             <p class="card-text">{{ $m->memo }}</p>
                             <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
                         </div>
@@ -90,6 +89,9 @@
                     </table>
                 </div>
                 <div class="card-body">
+                    @if($m->memo_file)
+                        <p class="card-text"><img src="/images/{{ $m->memo_file }}" style="max-width:90%;"></p>
+                    @endif
                     <p class="card-text">{!! nl2br($m->memo) !!}</p>
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_write('{{ $m->id }}','{{ $boards->num }}')">답글</a></span>
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
