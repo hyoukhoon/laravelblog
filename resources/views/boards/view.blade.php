@@ -251,11 +251,7 @@
                      $("#div_ajax_load_image").show();
               }
               else {
-				  if(memoid){
-						$("#memo_reply_image_"+memoid).html('<div id="div_ajax_load_image" style="width:' + width + 'px; height:' + height + 'px; z-index:9999; " class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>');
-				  }else{
-						$('#togglememoimage').html('<div id="div_ajax_load_image" style="width:' + width + 'px; height:' + height + 'px; z-index:9999; " class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>');
-				  }
+						$('#memo_image_view').html('<div id="div_ajax_load_image" style="width:' + width + 'px; height:' + height + 'px; z-index:9999; " class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>');
               }
 
        }
