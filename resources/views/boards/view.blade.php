@@ -194,7 +194,7 @@
         }
 
 
-    $("#memo_image").click(function () {
+    $("#attmemoimg").click(function () {
 		$('#upfile').click();
     });
     
