@@ -227,7 +227,7 @@
 				alert(return_data.msg);
 				return;
 			}else{
-				var html = "<img src='"+return_data.fn+"' style='max-width:100%;height:88px;'>";
+				var html = "<img src='/images/"+return_data.fn+"' style='max-width:100%;height:88px;'>";
 				//console.log("memoid=>"+memoid);
 					$("#memo_image_view").html(html);
 					$("#memo_image_view").show();
