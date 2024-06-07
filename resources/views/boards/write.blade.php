@@ -10,17 +10,15 @@
           @method('post')
           <input type="hidden" name="attcnt" id="attcnt" value="0">
           <div class="form-group">
-          <label class="col-md-4 text-right">제목</label>
           <div class="col-md-8">
-          <input type="text" name="subject" id="subject" class="form-control input-lg" />
+          <input type="text" name="subject" id="subject" class="form-control input-lg" placeholder="제목을 입력하세요." />
           </div>
           </div>
 
           <div class="form-group">
-               <label class="col-md-4 text-right">내용</label>
                <div class="col-md-8">
                     {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
-                    <div id="summernote"><p>Hello Summernote</p></div>
+                    <div id="summernote"></div>
                </div>
           </div>
           <br />
@@ -43,7 +41,7 @@
 
      $(document).ready(function() {
           $('#summernote').summernote({
-               placeholder: 'Hello stand alone ui',
+               placeholder: '내용을 입력하세요.',
                tabsize: 2,
                height: 400,
                focus: true,
