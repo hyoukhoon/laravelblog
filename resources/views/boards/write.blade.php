@@ -144,7 +144,8 @@ function attachFile(file) {
 
      function sendsubmit(){
           var subject=$("#subject").val();
-          var content=$("#content").val();
+          //var content=$("#content").val();
+          var content=$('#summernote').summernote('code');
           var data = {
                subject : subject,
                content : content
