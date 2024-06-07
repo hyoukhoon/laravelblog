@@ -19,6 +19,14 @@
     @section('section')
     @show
 
+    <!-- Modal structure -->
+    <div id="modal"> <!-- data-iziModal-fullscreen="true"  data-iziModal-title="Welcome"  data-iziModal-subtitle="Subtitle"  data-iziModal-icon="icon-home" -->
+        <!-- Modal content -->
+    </div>
+    
+    <!-- Trigger to open Modal -->
+    <a href="https://github.com/marcelodolza/iziModal" class="trigger">Modal</a>
+
     <h2 class="mt-4 mb-3">게시판 목록</h2>
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
     <table class="table table-striped table-hover">
@@ -53,4 +61,7 @@
     </table>
     {{-- {!! $boards->links() !!} --}}
     {{ $boards->links('paginations.default') }}
+    <script>
+        $("#modal").iziModal();
+    </script>
 @endsection
