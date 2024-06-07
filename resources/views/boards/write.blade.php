@@ -6,37 +6,36 @@
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <br />
      <form method="post" action="{{ route('boards.create') }}" enctype="multipart/form-data">
-        @csrf
-        @method('post')
-        <input type="hidden" name="attcnt" id="attcnt" value="0">
-      <div class="form-group">
-       <label class="col-md-4 text-right">제목</label>
-       <div class="col-md-8">
-        <input type="text" name="subject" id="subject" class="form-control input-lg" />
-       </div>
-      </div>
-
-      <div class="form-group">
-       <label class="col-md-4 text-right">내용</label>
-       <div class="col-md-8">
-            {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
-            <div id="summernote"><p>Hello Summernote</p></div>
-       </div>
-      </div>
-      <div id="attach_site">
-          <div class="row row-cols-1 row-cols-md-6 g-4" id="attachFiles" style="margin-left:0px;">
+          @csrf
+          @method('post')
+          <input type="hidden" name="attcnt" id="attcnt" value="0">
+          <div class="form-group">
+          <label class="col-md-4 text-right">제목</label>
+          <div class="col-md-8">
+          <input type="text" name="subject" id="subject" class="form-control input-lg" />
           </div>
-     </div>
-     <div class="mb-3">
-          <input type="file" name="afile" id="afile" accept="image/*" multiple class="form-control" aria-label="Large file input example">
-      </div>
-      <br />
-      <br />
-      <br />
-      <div class="col-md-8 form-group text-center">
-       {{-- <input type="submit" name="edit" class="btn btn-primary input-lg" value="등록" /> --}}
-       <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendsubmit()">등록</button>
-      </div>
+          </div>
+
+          <div class="form-group">
+               <label class="col-md-4 text-right">내용</label>
+               <div class="col-md-8">
+                    {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
+                    <div id="summernote"><p>Hello Summernote</p></div>
+               </div>
+          </div>
+          <div id="attach_site" class="col-md-8">
+               <div class="row row-cols-1 row-cols-md-6 g-4" id="attachFiles" style="margin-left:0px;">
+               </div>
+          </div>
+          <div class="col-md-8">
+               <input type="file" name="afile" id="afile" accept="image/*" multiple class="form-control" aria-label="Large file input example">
+          </div>
+          <br />
+          <br />
+          <br />
+          <div class="col-md-8 form-group text-center">
+          <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendsubmit()">등록</button>
+          </div>
      </form>
 <script>
 
