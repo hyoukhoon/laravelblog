@@ -1,6 +1,9 @@
 @extends('boards.layout')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
+<!-- include summernote css/js -->
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <br />
      <form method="post" action="{{ route('boards.create') }}" enctype="multipart/form-data">
         @csrf
@@ -16,7 +19,8 @@
       <div class="form-group">
        <label class="col-md-4 text-right">내용</label>
        <div class="col-md-8">
-            <textarea class="form-control" name="content" id="content" rows="10"></textarea>
+            {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
+            <div id="summernote"><p>Hello Summernote</p></div>
        </div>
       </div>
       <div id="attach_site">
@@ -35,6 +39,10 @@
       </div>
      </form>
 <script>
+
+     $(document).ready(function() {
+        $('#summernote').summernote();
+     });
 
 $("#afile").change(function(){
 	var formData = new FormData();
