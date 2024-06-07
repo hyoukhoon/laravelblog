@@ -23,6 +23,8 @@
                     <div id="summernote"><p>Hello Summernote</p></div>
                </div>
           </div>
+          <br />
+          <br />
           <div id="attach_site" class="col-md-8">
                <div class="row row-cols-1 row-cols-md-6 g-4" id="attachFiles" style="margin-left:0px;">
                </div>
