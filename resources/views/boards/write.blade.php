@@ -41,7 +41,21 @@
 <script>
 
      $(document).ready(function() {
-        $('#summernote').summernote();
+          $('#summernote').summernote({
+               placeholder: 'Hello stand alone ui',
+               tabsize: 2,
+               height: 400,
+               focus: true,
+               toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+               ]
+          });
      });
 
 $("#afile").change(function(){
