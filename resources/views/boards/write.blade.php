@@ -54,9 +54,20 @@ $(document).ready(function() {
                ['table', ['table']],
                ['insert', ['link', 'picture', 'video']],
                ['view', ['fullscreen', 'codeview', 'help']]
-          ]
+          ],
+          callbacks: {
+               onImageUpload: function (files) {
+                    for(var i=0; i < files.length; i++) {
+                         saveFile($summernote, files[i]);
+                    } 
+               }
+          }
      });
 });
+
+function saveFile($summernote, file){
+     alert('save imgae');
+}
 
 $("#afile").change(function(){
 	var formData = new FormData();
