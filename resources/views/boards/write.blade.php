@@ -96,7 +96,7 @@ function saveFile($summernote, file){
                     if(imgUrl){
                          imgUrl=imgUrl+",";
                     }
-                    $("#imgUrl").val(imgUrl+data.fn);
+                    $("#imgUrl").val(imgUrl+imgdata);
                }
           }
      });
