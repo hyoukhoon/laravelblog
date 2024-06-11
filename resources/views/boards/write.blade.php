@@ -13,6 +13,7 @@
           <div class="col-md-8">
           <input type="text" name="subject" id="subject" class="form-control input-lg" placeholder="제목을 입력하세요." />
           </div>
+          <br />
           </div>
 
           <div class="form-group">
@@ -39,23 +40,23 @@
      </form>
 <script>
 
-     $(document).ready(function() {
-          $('#summernote').summernote({
-               placeholder: '내용을 입력하세요.',
-               tabsize: 2,
-               height: 400,
-               focus: true,
-               toolbar: [
-                    ['style', ['style']],
-                    ['font', ['bold', 'underline', 'clear']],
-                    ['color', ['color']],
-                    ['para', ['ul', 'ol', 'paragraph']],
-                    ['table', ['table']],
-                    ['insert', ['link', 'picture', 'video']],
-                    ['view', ['fullscreen', 'codeview', 'help']]
-               ]
-          });
+$(document).ready(function() {
+     $('#summernote').summernote({
+          placeholder: '내용을 입력하세요.',
+          tabsize: 2,
+          height: 400,
+          focus: true,
+          toolbar: [
+               ['style', ['style']],
+               ['font', ['bold', 'underline', 'clear']],
+               ['color', ['color']],
+               ['para', ['ul', 'ol', 'paragraph']],
+               ['table', ['table']],
+               ['insert', ['link', 'picture', 'video']],
+               ['view', ['fullscreen', 'codeview', 'help']]
+          ]
      });
+});
 
 $("#afile").change(function(){
 	var formData = new FormData();
