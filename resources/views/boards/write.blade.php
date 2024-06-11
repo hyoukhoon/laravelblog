@@ -47,7 +47,7 @@
 <script>
 
 $(document).ready(function() {
-     var $summernote = $('#summernote').summernote({
+     var summernoteeditor = $('#summernote').summernote({
           placeholder: '내용을 입력하세요.',
           tabsize: 2,
           height: 400,
@@ -64,14 +64,14 @@ $(document).ready(function() {
           callbacks: {
                onImageUpload: function (files) {
                     for(var i=0; i < files.length; i++) {
-                         saveFile($summernote, files[i]);
+                         saveFile(summernoteeditor, files[i]);
                     } 
                }
           }
      });
 });
 
-function saveFile($summernote, file){
+function saveFile(summernoteeditor, file){
      var formData = new FormData();
      formData.append("file", file);
      formData.append("uptype", "editor");
@@ -83,11 +83,11 @@ function saveFile($summernote, file){
           processData: false,
           type: 'POST',
           success: function (data) {
-               if(data==-1){
+               if(data.result==-1){
                     alert('용량이 너무크거나 이미지 파일이 아닙니다.');
                     return;
                }else{
-                    $summernote.summernote('insertImage', data, function ($image) {
+                    summernoteeditor.summernote('insertImage', data, function ($image) {
                          var imgdata = "/images/"+data.fn;
                          console.log("imgdata=>"+imgdata);
                          $image.attr('src', imgdata);
