@@ -25,38 +25,43 @@ $(document).ready(function() {
         ],
         callbacks: {
             onImageUpload: function (files) {//이미지등록
-                var summercnt=$("#summercnt").val();
-                var summersize=$("#summersize").val();
-                var sfcnt=parseInt(summercnt)+parseInt(files.length);
-                $("#summercnt").val(sfcnt);
-
-                if(sfcnt>10){
-                        alert('이미지는 10개까지 첨부 가능합니다.');
-                        return;
-                }
-
-                var tfsize=0;
                 for(var i=0; i < files.length; i++) {
-                    var fsize=files[i].size;
-                    var tfsize=tfsize+fsize;
-                    } 
-
-                    var totalfsize=parseInt(summersize)+parseInt(tfsize);
-
-                var maxSize = 30 * 1024 * 1024; // 5MB
-
-                if(totalfsize>=maxSize){
-                    alert('이미지는 30MB까지 첨부 가능합니다.');
-                    return false;
-                }
-
-                for(var i=0; i < files.length; i++) {
-                    sendFile($summernote, files[i]);
-                    } 
+                    saveFile($summernote, files[i]);
+                } 
                 
             }
         }
     });
 });
+
+function saveFile($summernote, file){
+     var formData = new FormData();
+     formData.append("file", file);
+     formData.append("uptype", "editor");
+     $.ajax({
+          url: '/boards/saveimage',
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          type: 'POST',
+          success: function (data) {
+               if(data.result==-1){
+                    alert('용량이 너무크거나 이미지 파일이 아닙니다.');
+                    return;
+               }else{
+                    $('#summernote').summernote('insertImage', data.fn, function ($image) {
+                        $image.css('max-width', '100%');
+                        $image.css('padding', '10px');
+					});
+                    // var imgUrl=$("#imgUrl").val();
+                    // if(imgUrl){
+                    //      imgUrl=imgUrl+",";
+                    // }
+                    // $("#imgUrl").val(imgUrl+data.fn);
+               }
+          }
+     });
+}
 
 </script>
