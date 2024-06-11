@@ -14,6 +14,7 @@
           @csrf
           @method('post')
           <input type="hidden" name="attcnt" id="attcnt" value="0">
+          <input type="hidden" name="imgUrl" id="imgUrl" value="">
           <div class="form-group">
           <div class="col-md-8">
           <input type="text" name="subject" id="subject" class="form-control input-lg" placeholder="제목을 입력하세요." />
