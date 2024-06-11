@@ -27,6 +27,11 @@ class KboardController extends Controller
         }
     }
 
+    public function summernote()
+    {
+        return view('boards.summernote');
+    }
+
     public function create(Request $request)
     {
         $form_data = array(

@@ -1,9 +1,6 @@
 @extends('boards.layout')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<!-- include summernote css/js -->
-<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 <style>
      .childImg{
           width:90%;
@@ -25,7 +22,7 @@
           <div class="form-group">
                <div class="col-md-8">
                     {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
-                    <div id="summernote"></div>
+                    <iframe id="summer" src="{{ route('boards.summernote') }}" style="width:100%; height:450px; border:none" scrolling = "no"></iframe>
                </div>
           </div>
           <br />
@@ -45,63 +42,6 @@
           </div>
      </form>
 <script>
-
-$(document).ready(function() {
-     var summernoteeditor = $('#summernote').summernote({
-          placeholder: '내용을 입력하세요.',
-          tabsize: 2,
-          height: 400,
-          focus: true,
-          toolbar: [
-               ['style', ['style']],
-               ['font', ['bold', 'underline', 'clear']],
-               ['color', ['color']],
-               ['para', ['ul', 'ol', 'paragraph']],
-               ['table', ['table']],
-               ['insert', ['link', 'picture', 'video']],
-               ['view', ['fullscreen', 'codeview', 'help']]
-          ],
-          callbacks: {
-               onImageUpload: function (files) {
-                    for(var i=0; i < files.length; i++) {
-                         saveFile(summernoteeditor, files[i]);
-                    } 
-               }
-          }
-     });
-});
-
-function saveFile(summernoteeditor, file){
-     var formData = new FormData();
-     formData.append("file", file);
-     formData.append("uptype", "editor");
-     $.ajax({
-          url: '{{ route('boards.saveimage') }}',
-          data: formData,
-          cache: false,
-          contentType: false,
-          processData: false,
-          type: 'POST',
-          success: function (data) {
-               if(data.result==-1){
-                    alert('용량이 너무크거나 이미지 파일이 아닙니다.');
-                    return;
-               }else{
-                    summernoteeditor.summernote('insertImage', data, function ($image) {
-                         var imgdata = "/images/"+data.fn;
-                         console.log("imgdata=>"+imgdata);
-                         $image.attr('src', imgdata);
-                         $image.attr('class', 'childImg');
-                    });
-                    var imgUrl=$("#imgUrl").val();
-                    if(imgUrl){
-                         imgUrl=imgUrl+",";
-                    }
-                    $("#imgUrl").val(imgUrl+data.fn);
-               }
-          }
-     });
-}
 
 $("#afile").change(function(){
 	var formData = new FormData();
