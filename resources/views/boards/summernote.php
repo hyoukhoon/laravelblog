@@ -4,7 +4,7 @@
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
 
-<div id="summernote"><?php echo $content;?></div>
+<div id="summernote"></div>
 
 <script>
 $(document).ready(function() {
