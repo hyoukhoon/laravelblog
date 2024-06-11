@@ -89,6 +89,7 @@ function saveFile($summernote, file){
                }else{
                     $summernote.summernote('insertImage', data, function ($image) {
                          var imgdata = "/images/"+data.fn;
+                         console.log("imgdata=>"+imgdata);
                          $image.attr('src', imgdata);
                          $image.attr('class', 'childImg');
                     });
@@ -96,7 +97,7 @@ function saveFile($summernote, file){
                     if(imgUrl){
                          imgUrl=imgUrl+",";
                     }
-                    $("#imgUrl").val(imgUrl+imgdata);
+                    $("#imgUrl").val(imgUrl+data.fn);
                }
           }
      });
