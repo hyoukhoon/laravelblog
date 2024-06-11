@@ -54,11 +54,8 @@ function saveFile($summernote, file){
                         $image.css('max-width', '100%');
                         $image.css('padding', '10px');
 					});
-                    // var imgUrl=$("#imgUrl").val();
-                    // if(imgUrl){
-                    //      imgUrl=imgUrl+",";
-                    // }
-                    // $("#imgUrl").val(imgUrl+data.fn);
+                    var imgUrl=data.fn+","+parent.$("#imgUrl").val()//부모창의 id값을 호출
+                    parent.$("#imgUrl").val(imgUrl);
                }
           }
      });
