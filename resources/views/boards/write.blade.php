@@ -4,6 +4,11 @@
 <!-- include summernote css/js -->
 <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+<style>
+     .childImg{
+          width:90%;
+     }
+</style>
 <br />
      <form method="post" action="{{ route('boards.create') }}" enctype="multipart/form-data">
           @csrf
@@ -66,7 +71,34 @@ $(document).ready(function() {
 });
 
 function saveFile($summernote, file){
-     alert('save imgae');
+     var formData = new FormData();
+     formData.append("file", file);
+     formData.append("uptype", "editor");
+     $.ajax({
+          url: '{{ route('boards.saveimage') }}',
+          data: formData,
+          cache: false,
+          contentType: false,
+          processData: false,
+          type: 'POST',
+          success: function (data) {
+               if(data==-1){
+                    alert('용량이 너무크거나 이미지 파일이 아닙니다.');
+                    return;
+               }else{
+                    $summernote.summernote('insertImage', data, function ($image) {
+                         var imgdata = "/images/"+data.fn;
+                         $image.attr('src', imgdata);
+                         $image.attr('class', 'childImg');
+                    });
+                    var imgUrl=$("#imgUrl").val();
+                    if(imgUrl){
+                         imgUrl=imgUrl+",";
+                    }
+                    $("#imgUrl").val(imgUrl+data);
+               }
+          }
+     });
 }
 
 $("#afile").change(function(){
