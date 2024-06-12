@@ -1,11 +1,6 @@
 @extends('boards.layout')
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
-<style>
-     .childImg{
-          width:90%;
-     }
-</style>
 <br />
      <form method="post" action="{{ route('boards.create') }}" enctype="multipart/form-data">
           @csrf
