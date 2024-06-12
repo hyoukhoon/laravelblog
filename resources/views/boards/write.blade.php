@@ -80,7 +80,7 @@ function attachFile(file) {
 				return false;
 			}else{
                 //var img="<img src='"+data+"' width='50'><br>";
-				var html = "<div id='"+return_data.fn+"' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='/images/"+return_data.fn+"' width='100' /><div class='card-body'><button type='button' class='btn btn-warning' onclick=\"deletefile('"+return_data.fn+"')\">삭제</button></div></div>";
+				var html = "<div id='af_"+return_data.fid+"' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='/images/"+return_data.fn+"' width='100' /><div class='card-body'><button type='button' class='btn btn-warning' onclick=\"deletefile('"+return_data.fn+"', '"+return_data.fid+"')\">삭제</button></div></div>";
                     $("#attachFiles").append(html);
 				
 				var rcnt=parseInt(attcnt)+1;
@@ -146,7 +146,7 @@ function attachFile(file) {
           });
      }
 
-     function deletefile(fn){
+     function deletefile(fn,fid){
           var data = {
                fn : fn
           };
@@ -157,8 +157,8 @@ function attachFile(file) {
                dataType: 'json',
                data: data,
                success: function(data) {
-                    alert("deleted");
-                    $("#"+fn).hide();
+                    alert("삭제했습니다.");
+                    $("#af_"+fid).hide();
                },
                error: function(data) {
                     console.log("error" +JSON.stringify(data));
