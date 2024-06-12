@@ -12,7 +12,7 @@ $(document).ready(function() {
         codeviewFilter: false,
         codeviewIframeFilter: true,
         lang: 'ko-KR',
-        height: 360,
+        height: 600,
         toolbar:[
             ['style', ['bold', 'italic', 'underline', 'clear']],
             ['font', ['strikethrough', 'superscript', 'subscript']],
