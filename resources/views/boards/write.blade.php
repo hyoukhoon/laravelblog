@@ -158,6 +158,7 @@ function attachFile(file) {
                data: data,
                success: function(data) {
                     alert("deleted");
+                    $("#"+fn).hide();
                },
                error: function(data) {
                     console.log("error" +JSON.stringify(data));
