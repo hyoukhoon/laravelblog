@@ -22,7 +22,7 @@
           <div class="form-group">
                <div class="col-md-8">
                     {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
-                    <iframe id="summer" src="{{ route('boards.summernote') }}" style="width:100%; height:450px; border:none" scrolling = "no"></iframe>
+                    <iframe id="summerframe" src="{{ route('boards.summernote') }}" style="width:100%; height:450px; border:none" scrolling = "no"></iframe>
                </div>
           </div>
           <br />
@@ -131,7 +131,8 @@ function attachFile(file) {
      function sendsubmit(){
           var subject=$("#subject").val();
           //var content=$("#content").val();
-          var content=$('#summernote').summernote('code');
+          //var content=$('#summernote').summernote('code');
+          var content=$('#summerframe').get(0).contentWindow.$('#summernote').summernote('code');//iframe에 있는 summernote함수를 작동시킨다.
           var data = {
                subject : subject,
                content : content
