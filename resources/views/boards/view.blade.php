@@ -18,10 +18,7 @@
             <tr>
                 <th width="100">첨부 이미지</th>
                 <td>
-                    {{
-                        $attfiles = explode(",",$boards->attachfile);
-                    }}
-                    @foreach ($attfiles as $af)
+                    @foreach ($boards->attfiles as $af)
                         <img src="/images/{{ $af }}" style="max-width:100%;"><br>
                     @endforeach
                 </td>
