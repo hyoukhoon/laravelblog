@@ -15,6 +15,17 @@
                 <th width="100">내용</th>
                 <td>{!! $boards->content !!}</td>
             </tr>
+            <tr>
+                <th width="100">첨부 이미지</th>
+                <td>
+                    {{
+                        $attfiles = explode(",",$boads->attachfile);
+                    }}
+                    @foreach ($attfiles as $af)
+                        <img src="/images/{{ $af }}" style="max-width:100%;"><br>
+                    @endforeach
+                </td>
+            </tr>
         </tbody>
     </table>
     <div align="right">
