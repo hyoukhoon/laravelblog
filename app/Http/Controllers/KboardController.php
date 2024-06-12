@@ -152,4 +152,11 @@ class KboardController extends Controller
         return response()->json(array('msg'=> "succ", 'fn'=>$new_name), 200);
     }
 
+    public function deletefile(Request $request)
+    {
+        $image = $request->fn;
+        unlink(public_path('images'), $image);
+        return response()->json(array('msg'=> "succ", 'fn'=>$image), 200);
+    }
+
 }
