@@ -16,7 +16,6 @@
 
           <div class="form-group">
                <div class="col-md-8">
-                    {{-- <textarea class="form-control" name="content" id="content" rows="10"></textarea> --}}
                     <iframe id="summerframe" src="{{ route('boards.summernote') }}" style="width:100%; height:450px; border:none" scrolling = "no"></iframe>
                </div>
           </div>
@@ -133,7 +132,6 @@ function attachFile(file) {
                content : content
           };
           $.ajax({
-               //아래 headers에 반드시 token을 추가해줘야 한다.!!!!! 
                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
                type: 'post',
                url: '{{ route('boards.create') }}',
