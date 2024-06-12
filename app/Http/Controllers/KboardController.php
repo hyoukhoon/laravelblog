@@ -155,7 +155,7 @@ class KboardController extends Controller
     public function deletefile(Request $request)
     {
         $image = $request->fn;
-        unlink("/images/".$image);
+        unlink(public_path('images').$image);
         return response()->json(array('msg'=> "succ", 'fn'=>$image), 200);
     }
 
