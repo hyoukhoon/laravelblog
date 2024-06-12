@@ -37,6 +37,8 @@ class KboardController extends Controller
         $form_data = array(
             'subject' => $request->subject,
             'content' => $request->content,
+            'file_list' => $request->imgUrl,
+            'attachfile' => $request->attachFile,
             'name' => Auth::user()->nickName,
             'email' => Auth::user()->email,
             'isdisp' => 1

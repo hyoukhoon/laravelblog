@@ -128,9 +128,13 @@ function attachFile(file) {
           //var content=$("#content").val();
           //var content=$('#summernote').summernote('code');
           var content=$('#summerframe').get(0).contentWindow.$('#summernote').summernote('code');//iframe에 있는 summernote함수를 작동시킨다.
+          var imgUrl = $("#imgUrl").val();
+          var attachFile = $("#attachFile").val();
           var data = {
                subject : subject,
-               content : content
+               content : content,
+               imgUrl : imgUrl,
+               attachFile : attachFile
           };
           $.ajax({
                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
