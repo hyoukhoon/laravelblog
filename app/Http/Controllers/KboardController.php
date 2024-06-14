@@ -72,6 +72,12 @@ class KboardController extends Controller
         return view('boards.edit', compact('boards'));
     }
 
+    public function summernoteedit($num)
+    {
+        $boards = Kboard::findOrFail($num);
+        return view('boards.summernote', compact('boards'));
+    }
+
     public function update(Request $request, $num)
     {
 

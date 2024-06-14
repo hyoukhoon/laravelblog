@@ -12,9 +12,8 @@
       </div>
 
       <div class="form-group">
-       <label class="col-md-4 text-right">내용</label>
        <div class="col-md-8">
-            <textarea class="form-control" name="content" rows="10">{!! $boards->content !!}</textarea>
+          <iframe id="summerframe" src="{{ route('boards.summernoteedit', $boards->num) }}" style="width:100%; height:650px; border:none" scrolling = "no"></iframe>
        </div>
       </div>
       <br />

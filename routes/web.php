@@ -45,6 +45,7 @@ Route::post('/boards/memoup', [KboardController::class, 'memoup'])->name('boards
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
 Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');
 Route::post('/boards/update/{id}', [KboardController::class, 'update'])->name('boards.update');
+Route::post('/boards/summernoteedit/{id}', [KboardController::class, 'summernoteedit'])->name('boards.summernoteedit');
 Route::get('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
 Route::post('/boards/memodelete', [KboardController::class, 'memodelete'])->name('boards.memodelete');
 Route::post('/boards/deletefile', [KboardController::class, 'deletefile'])->name('boards.deletefile');
