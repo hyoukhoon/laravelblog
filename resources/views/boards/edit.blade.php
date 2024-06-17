@@ -24,7 +24,8 @@
       <div id="attach_site" class="col-md-8">
          <div class="row row-cols-1 row-cols-md-6 g-4" id="attachFiles" style="margin-left:0px;">
             {{
-               $attachfiles = explode(",",$boards->attachfile);
+               //$attachfiles = explode(",",$boards->attachfile);
+               echo $boards->attachfile;
             }}
             @foreach ($attachfiles as $af)
                <div id='af_{{ $af }}' class='card h-100' style='width:120px;margin-right: 10px;margin-bottom: 10px;'><img src='/images/{{ $af }}' width='100' /><div class='card-body'><button type='button' class='btn btn-warning' onclick='deletefile("{{ $af }}")'>삭제</button></div></div>
