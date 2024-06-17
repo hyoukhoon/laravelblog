@@ -39,5 +39,25 @@
        <input type="submit" name="edit" class="btn btn-primary input-lg" value="수정" />
       </div>
      </form>
-
+<script>
+   function deletefile(fn){
+          var data = {
+               fn : fn
+          };
+          $.ajax({
+               headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+               type: 'post',
+               url: '{{ route('boards.deletefile') }}',
+               dataType: 'json',
+               data: data,
+               success: function(data) {
+                    alert("삭제했습니다.");
+                    $("#af_"+fn).hide();
+               },
+               error: function(data) {
+                    console.log("error" +JSON.stringify(data));
+               }
+          });
+   }
+</script>
 @endsection
