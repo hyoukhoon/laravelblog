@@ -17,7 +17,7 @@
 
           <div class="form-group">
                <div class="col-md-8">
-                    <iframe id="summerframe" src="/boards/summernote" style="width:100%; height:650px; border:none" scrolling = "no"></iframe>
+                    <iframe id="summerframe" src="{{ route('boards.summernote') }}" style="width:100%; height:650px; border:none" scrolling = "no"></iframe>
                </div>
           </div>
           <br />
