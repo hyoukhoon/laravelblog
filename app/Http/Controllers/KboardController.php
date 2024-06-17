@@ -21,7 +21,8 @@ class KboardController extends Controller
     public function write()
     {
         if(auth()->check()){
-            return view('boards.write');
+            $boards = array();
+            return view('boards.write', compact('boards'));
         }else{
             return redirect()->back()->with('로그인 하십시오.');
         }
