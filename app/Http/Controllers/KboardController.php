@@ -69,6 +69,7 @@ class KboardController extends Controller
     public function edit($num)
     {
         $boards = Kboard::findOrFail($num);
+        $boards->attfiles = explode(",",$boards->attachfile);
         return view('boards.edit', compact('boards'));
     }
 
