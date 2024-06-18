@@ -15,6 +15,7 @@
                 <th width="100">내용</th>
                 <td>{!! $boards->content !!}</td>
             </tr>
+            @if($boards->attfiles)
             <tr>
                 <th width="100">첨부 이미지</th>
                 <td>
@@ -23,14 +24,13 @@
                     @endforeach
                 </td>
             </tr>
+            @endif
         </tbody>
     </table>
     <div align="right">
         @if($boards->email==auth()->user()->email)
             <a href="/boards/edit/{{ $boards->num }}" class="btn btn-default">수정</a>
             <a href="/boards/delete/{{ $boards->num }}" class="btn btn-default" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
-        @else
-
         @endif
         <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
     </div>
