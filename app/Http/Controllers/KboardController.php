@@ -167,7 +167,19 @@ class KboardController extends Controller
     public function deletefile(Request $request)
     {
         $image = $request->fn;
+        $num = $request->num;
         unlink(public_path('images')."/".$image);
+
+        $boards = Kboard::findOrFail($num);
+        $attachfiles = explode(",",$boards->attachfile);
+        $key = array_search($image, $attachfiles );
+        array_splice($attachfiles, $key, 1 );
+
+        $form_data = array(
+            'attachfile'       =>   implode(",",$attachfiles)
+        );
+        Kboard::where('num', $num)->update($form_data);
+
         return response()->json(array('msg'=> "succ", 'fn'=>$image), 200);
     }
 

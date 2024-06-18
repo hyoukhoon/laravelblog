@@ -42,7 +42,8 @@
 <script>
    function deletefile(fn){
           var data = {
-               fn : fn
+               fn : fn,
+               num : '<?php echo $boards->num;?>'
           };
           $.ajax({
                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
