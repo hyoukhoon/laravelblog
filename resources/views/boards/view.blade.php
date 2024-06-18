@@ -19,7 +19,6 @@
             <tr>
                 <th width="100">첨부 이미지</th>
                 <td>
-                    {{ print_r($boards->attfiles) }}
                     @foreach ($boards->attfiles as $af)
                         <img src="/images/{{ $af }}" style="max-width:100%;"><br>
                     @endforeach
