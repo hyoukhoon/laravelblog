@@ -103,9 +103,11 @@ class KboardController extends Controller
     public function delete($num)
     {
         $data = Kboard::findOrFail($num);
-        $attachfiles = explode(",",$data->attachfile);
-        foreach($attachfiles as $af){
-            unlink(public_path('images')."/".$af);
+        if($data->attachfile){
+            $attachfiles = explode(",",$data->attachfile);
+            foreach($attachfiles as $af){
+                unlink(public_path('images')."/".$af);
+            }
         }
         $data->delete();
 
