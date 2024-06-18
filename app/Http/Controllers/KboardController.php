@@ -180,7 +180,7 @@ class KboardController extends Controller
         );
         Kboard::where('num', $num)->update($form_data);
 
-        return response()->json(array('msg'=> "succ", 'fn'=>$image), 200);
+        return response()->json(array('msg'=> "succ", 'fn'=>$image, 'fid'=>substr($image,0,10)), 200);
     }
 
 }
