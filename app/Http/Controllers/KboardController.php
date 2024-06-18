@@ -21,8 +21,7 @@ class KboardController extends Controller
     public function write()
     {
         if(auth()->check()){
-            $boards->content = 0;
-            return view('boards.write', compact('boards'));
+            return view('boards.write');
         }else{
             return redirect()->back()->with('로그인 하십시오.');
         }
@@ -30,7 +29,8 @@ class KboardController extends Controller
 
     public function summernote()
     {
-        return view('boards.summernote');
+        $boards = array();
+        return view('boards.summernote',compact('boards'));
     }
 
     public function create(Request $request)
