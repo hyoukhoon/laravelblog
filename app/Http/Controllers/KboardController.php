@@ -10,11 +10,14 @@ use Log;
 class KboardController extends Controller
 {
     public function index(){
-        //Qna::orderBy('regdate', 'desc')->get();
-        //$boards = Kboard::latest('reg_date')->paginate(10);
+        //$boards = Kboard::latest('reg_date')->paginate(20);
         $boards = Kboard::orderBy('num','desc')->paginate(20);
-        //error_log ('['.__FILE__.']['.__FUNCTION__.']['.__LINE__.']['.date("YmdHis").']'.print_r($boards,true)."\n", 3, "/var/www/chukppa/board/upImages/data/L_".date("Ymd").'.log');
-        //return view('boards.index', compact('boards'));
+        return view('boards.index', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
+    }
+
+    public function search($search){
+        $param = "%".$search."%";
+        $boards = Kboard::where('subject', 'LIKE', $param)->orderBy('num', 'desc')->paginate(20);
         return view('boards.index', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
