@@ -41,7 +41,9 @@
         <tbody>
         @foreach ($boards as $key => $board)
             <tr>
-                <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th>
+                {{-- <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th> --}}
+                <th scope="row">{{ $boards->total() }}</th>
+                
                 <td>{{$board->name}}</td>
                 <td><a href="{{ route('boards.show', $board->num) }}">{{$board->subject}}</a>
                     {{ $board->memo_cnt??"[".$board->memo_cnt."]" }}
