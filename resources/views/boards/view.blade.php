@@ -32,7 +32,7 @@
             <a href="/boards/edit/{{ $boards->num }}" class="btn btn-default">수정</a>
             <a href="/boards/delete/{{ $boards->num }}" class="btn btn-default" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
         @endif
-        <a href="{{ route('boards.index') }}" class="btn btn-default">목록</a>
+        <a href="{{ url()->previous() }}" class="btn btn-default">목록</a>
     </div>
     
     <!--댓글 시작 -->
