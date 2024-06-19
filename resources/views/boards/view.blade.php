@@ -187,6 +187,9 @@
         }
 
         function memo_delete(m, b){
+            if(!confirm('삭제하시겠습니까?')){
+                return false;
+            }
             var data = {
                 id : m,
                 bid : b
