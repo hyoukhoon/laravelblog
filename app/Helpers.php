@@ -19,4 +19,16 @@ function disptime($regdate){
 
 }
 
+function attachdeletes($files){
+    if($files){
+        $attachfiles = explode(",",$files);
+        foreach($attachfiles as $af){
+            if($af){
+                unlink(public_path('images')."/".$af);
+            }
+        }
+    }
+    return true;
+}
+
 ?>
