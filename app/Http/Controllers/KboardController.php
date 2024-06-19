@@ -18,7 +18,7 @@ class KboardController extends Controller
     public function search(Request $request){
         $param = "%".$request->input('search')."%";
         $boards = Kboard::where('subject', 'LIKE', $param)->orderBy('num', 'desc')->paginate(20);
-        return view('boards.search', compact('boards','search'))->with('i', (request()->input('page', 1) - 1) * 20);
+        return view('boards.search', compact('boards'))->with('i', (request()->input('page', 1) - 1) * 20);
     }
 
     // public function search($search){
