@@ -21,7 +21,7 @@
 
     <h2 class="mt-4 mb-3">게시판 목록</h2>
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
-        <form method="post" action="{{ route('boards.search') }}">
+        <form method="post" action="/boards/search">
             @csrf
             @method('get')
             <input type="text" name="search" value="">
