@@ -106,7 +106,17 @@ class KboardController extends Controller
         if($data->attachfile){
             $attachfiles = explode(",",$data->attachfile);
             foreach($attachfiles as $af){
-                unlink(public_path('images')."/".$af);
+                if($af){
+                    unlink(public_path('images')."/".$af);
+                }
+            }
+        }
+        if($data->file_list){
+            $filelist = explode(",",$data->file_list);
+            foreach($filelist as $ft){
+                if($ft){
+                    unlink(public_path('images')."/".$ft);
+                }
             }
         }
         $data->delete();
