@@ -43,7 +43,9 @@
             <tr>
                 <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th>
                 <td>{{$board->name}}</td>
-                <td><a href="{{ route('boards.show', $board->num) }}">{{$board->subject}}</a></td>
+                <td><a href="{{ route('boards.show', $board->num) }}">{{$board->subject}}</a>
+                    {{ $board->memo_cnt??"[".$board->memo_cnt."]" }}
+                </td>
                 <td>{{$board->cnt}}</td>
                 {{-- <td>{{$board->reg_date->format("Y-m-d")}}</td> --}}
                 <td>{{ disptime($board->reg_date) }}</td>
