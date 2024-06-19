@@ -21,12 +21,12 @@
 
     <h2 class="mt-4 mb-3">게시판 목록</h2>
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
-        <form method="post" action="/boards/search">
-            @csrf
-            @method('post')
-            <input type="text" name="search" value="{{ $search }}">
-            <input type="submit" value="검색">
-        </form>
+    <form method="post" action="/boards/search">
+        @csrf
+        @method('post')
+        <input type="text" name="search" value="{{ $search }}">
+        <input type="submit" value="검색">
+    </form>
     <table class="table table-striped table-hover">
         <colgroup>
             <col width="10%"/>
@@ -64,5 +64,6 @@
         </tbody>
     </table>
     {{-- {!! $boards->links() !!} --}}
+    @method('post')
     {{ $boards->links('paginations.default') }}
 @endsection
