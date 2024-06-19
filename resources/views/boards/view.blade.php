@@ -131,6 +131,8 @@
 		<button type="button" class="btn btn-secondary" style="float:right;" id="memo_submit" onclick="memoup()">입력</button>
     </div>
     <!-- 댓글 입력 끝-->
+    <div style="padding:20px;">
+    </div>
 
     <script>
         function memoup(){
