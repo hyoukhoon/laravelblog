@@ -64,6 +64,5 @@
         </tbody>
     </table>
     {{-- {!! $boards->links() !!} --}}
-    @method('post')
     {{ $boards->links('paginations.default') }}
 @endsection
