@@ -23,7 +23,7 @@
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
         <form method="get" action="/boards/search">
             @csrf
-            @method('get')
+            @method('post')
             <input type="text" name="search" value="">
             <input type="submit" value="검색">
         </form>
