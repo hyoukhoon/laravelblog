@@ -48,7 +48,7 @@
                 <th scope="row">{{ $idx-- }}</th>
                 <td>{{$board->name}}</td>
                 <td><a href="{{ route('boards.show', $board->num) }}">{{$board->subject}}</a>
-                    {{ $board->memo_cnt??"[".$board->memo_cnt."]" }}
+                    {{ $board->memo_cnt?"[".$board->memo_cnt."]":"" }}
                 </td>
                 <td>{{$board->cnt}}</td>
                 {{-- <td>{{$board->reg_date->format("Y-m-d")}}</td> --}}
