@@ -24,7 +24,7 @@
         <form method="post" action="/boards/search">
             @csrf
             @method('post')
-            <input type="text" name="search" value="">
+            <input type="text" name="search" value="{{ $search }}">
             <input type="submit" value="검색">
         </form>
     <table class="table table-striped table-hover">
