@@ -1,4 +1,3 @@
-@extends('boards.layout')
 @if ($paginator->hasPages())
     <ul class="pagination">
         {{-- Previous Page Link --}}
