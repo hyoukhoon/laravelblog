@@ -37,7 +37,6 @@ Route::post('/products/store', [ProductController::class, 'store'])->name('produ
 Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
-//Route::get('/boards/search/', [KboardController::class, 'search'])->name('boards.search');
 Route::get('/boards/search/', [KboardController::class, 'search'])->name('boards.search');
 Route::get('/boards/write', [KboardController::class, 'write'])->name('boards.write');
 Route::get('/boards/summernote', [KboardController::class, 'summernote'])->name('boards.summernote');
