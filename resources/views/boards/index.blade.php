@@ -20,11 +20,15 @@
     @show
 
     <h2 class="mt-4 mb-3">게시판 목록</h2>
+    <div style="text-align:right;">
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
+    </dvi>
+    <div style="text-align:center;">
         <form method="get" action="/boards/search">
             <input type="text" name="search" value="{{ request('search') }}">
             <input type="submit" value="검색">
         </form>
+    </div>
     <table class="table table-striped table-hover">
         <colgroup>
             <col width="10%"/>
