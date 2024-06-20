@@ -62,5 +62,5 @@
         </tbody>
     </table>
     {{-- {!! $boards->links() !!} --}}
-    {{ $boards->links('paginations.default') }}
+    {{ $boards->withQueryString()->links('paginations.default') }}
 @endsection
