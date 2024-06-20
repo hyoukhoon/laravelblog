@@ -22,7 +22,7 @@
     <h2 class="mt-4 mb-3">게시판 목록</h2>
     <div style="text-align:right;">
     <a href="{{route('boards.write')}}"><button class="text-xl">등록</button></a>
-    </dvi>
+    </div>
     <div style="text-align:center;">
         <form method="get" action="/boards/search">
             <input type="text" name="search" value="{{ request('search') }}">
