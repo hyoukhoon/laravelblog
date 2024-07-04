@@ -138,11 +138,11 @@
 		<button type="button" id="attmemoimg" class="btn btn-seconday">이미지첨부</button>
 		<input type="file" name="upfile" id="upfile" accept="image/*" style="display:none;">
 		<textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memo" id="memo" placeholder="댓글을 입력해주세요"></textarea>
-        @if(auth()->user()->email)
+        @auth()
 		    <button type="button" class="btn btn-secondary" style="float:right;" id="memo_submit" onclick="memoup()">입력</button>
         @else
             <button type="button" class="btn btn-secondary" style="float:right;" id="memo_submit" onclick="alert('로그인 하셔야 입력할 수 있습니다.');">입력</button>
-        @endif
+        @endauth
     </div>
     <!-- 댓글 입력 끝-->
     <div style="padding:20px;">
