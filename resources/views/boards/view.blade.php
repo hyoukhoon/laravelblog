@@ -190,7 +190,7 @@
                 dataType: 'json',
                 data: data,
                 success: function(data) {
-                    var html='<div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;"><textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memomodify" id="memomodify">'+data.data+'</textarea><button type="button" class="btn btn-secondary" style="float:right;" id="memo_modifyup" onclick="memomodifyup()">수정</button></div>';
+                    var html='<div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;"><textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memomodify" id="memomodify">'+data.data.memo+'</textarea><button type="button" class="btn btn-secondary" style="float:right;" id="memo_modifyup" onclick="memomodifyup()">수정</button></div>';
                     $("#memolist_"+m).append(html);
                 },
                 error: function(data) {
