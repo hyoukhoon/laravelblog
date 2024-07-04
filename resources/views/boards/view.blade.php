@@ -190,11 +190,33 @@
                 dataType: 'json',
                 data: data,
                 success: function(data) {
-                    var html='<div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;"><textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memomodify" id="memomodify">'+data.data.memo+'</textarea><button type="button" class="btn btn-secondary" style="float:right;" id="memo_modifyup" onclick="memomodifyup()">수정</button></div>';
+                    var html='<div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;"><textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memomodify_'+m+'" id="memomodify_'+m+'">'+data.data.memo+'</textarea><button type="button" class="btn btn-secondary" style="float:right;" id="memo_modifyup" onclick="memomodifyup('+m+')">수정</button></div>';
                     $("#memolist_"+m).append(html);
                 },
                 error: function(data) {
                     console.log("error" +JSON.stringify(data));
+                }
+            });
+        }
+
+        function memomodifyup(m){
+            var memo=$("#memomodify_"+m).val();
+            var data = {
+                memo : memo,
+                mid : m
+            };
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: 'post',
+                url: '{{ route('boards.memomodifyup') }}',
+                dataType: 'json',
+                data: data,
+                success: function(data) {
+                    console.log(JSON.stringify(data));
+                    location.reload();
+                },
+                error: function(data) {
+                console.log("error" +JSON.stringify(data));
                 }
             });
         }

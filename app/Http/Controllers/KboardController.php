@@ -133,6 +133,20 @@ class KboardController extends Controller
         }
     }
 
+    public function memomodifyup(Request $request)
+    {
+        $data = memo::findOrFail($request->mid);
+        if(Auth::user()->email==$data->userid){
+            $form_data = array(
+                'memo'       =>   $request->memo
+            );
+            memo::where('id', $request->mid)->update($form_data);
+            return response()->json(array('msg'=> "succ", 'data'=>$request->memo), 200);
+        }else{
+            return response()->json(array('msg'=> "fail"), 200);
+        }
+    }
+
     public function memodelete(Request $request)
     {
         $data = memo::findOrFail($request->id);
