@@ -70,7 +70,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-text">{{ $m->memo }}</p>
+                            @auth()
                             <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
+                            @endauth
                         </div>
                     </div>
                 </div>
@@ -103,8 +105,10 @@
                         <p class="card-text"><img src="/images/{{ $m->memo_file }}" style="max-width:90%;"></p>
                     @endif
                     <p class="card-text">{!! nl2br($m->memo) !!}</p>
+                    @auth()
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_write('{{ $m->id }}','{{ $boards->num }}')">답글</a></span>
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
+                    @endauth
                 </div>
             </div>
             <div class="input-group" style="margin-top:10px;margin-bottom:10px;display:none;" id="{{ 'memo_reply_area_'.$m->id }}">
