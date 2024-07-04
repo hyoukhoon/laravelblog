@@ -71,6 +71,7 @@
                         <div class="card-body">
                             <p class="card-text">{{ $m->memo }}</p>
                             @auth()
+                            <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_modify('{{ $m->id }}','{{ $boards->num }}')">수정</a></span>
                             <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
                             @endauth
                         </div>
@@ -107,6 +108,7 @@
                     <p class="card-text">{!! nl2br($m->memo) !!}</p>
                     @auth()
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_write('{{ $m->id }}','{{ $boards->num }}')">답글</a></span>
+                    <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_modify('{{ $m->id }}')">수정</a></span>
                     <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
                     @endauth
                 </div>
@@ -175,6 +177,26 @@
 
         function reply_write(m, b){
             $("#memo_reply_area_"+m).toggle();
+        }
+
+        function memo_modify(m){
+            var data = {
+                mid : m
+            };
+            $.ajax({
+                headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+                type: 'get',
+                url: '{{ route('boards.memoread') }}',
+                dataType: 'json',
+                data: data,
+                success: function(data) {
+                    var html='<div class="input-group" id="firstmemo" style="margin-top:10px;margin-bottom:10px;"><textarea class="form-control" aria-label="With textarea" style="height:100px;" name="memomodify" id="memomodify">'+data.data+'</textarea><button type="button" class="btn btn-secondary" style="float:right;" id="memo_modifyup" onclick="memomodifyup()">수정</button></div>';
+                    $("#memolist_"+m).append(html);
+                },
+                error: function(data) {
+                    console.log("error" +JSON.stringify(data));
+                }
+            });
         }
 
         function memo_reply(m, b){
