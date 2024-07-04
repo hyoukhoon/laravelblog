@@ -38,18 +38,21 @@ Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/search/', [KboardController::class, 'search'])->name('boards.search');
-Route::get('/boards/write', [KboardController::class, 'write'])->name('boards.write');
-Route::get('/boards/summernote', [KboardController::class, 'summernote'])->name('boards.summernote');
-Route::get('/boards/summernoteedit/{id}', [KboardController::class, 'summernoteedit'])->name('boards.summernoteedit');
-Route::post('/boards/create', [KboardController::class, 'create'])->name('boards.create');
-Route::post('/boards/saveimage', [KboardController::class, 'saveimage'])->name('boards.saveimage');
-Route::post('/boards/memoup', [KboardController::class, 'memoup'])->name('boards.memoup');
 Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
-Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');
-Route::post('/boards/update/{id}', [KboardController::class, 'update'])->name('boards.update');
-Route::get('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
-Route::post('/boards/memodelete', [KboardController::class, 'memodelete'])->name('boards.memodelete');
-Route::post('/boards/deletefile', [KboardController::class, 'deletefile'])->name('boards.deletefile');
+
+Route::middleware('auth') -> group(function (){
+    Route::get('/boards/write', [KboardController::class, 'write'])->name('boards.write');
+    Route::get('/boards/summernote', [KboardController::class, 'summernote'])->name('boards.summernote');
+    Route::get('/boards/summernoteedit/{id}', [KboardController::class, 'summernoteedit'])->name('boards.summernoteedit');
+    Route::post('/boards/create', [KboardController::class, 'create'])->name('boards.create');
+    Route::post('/boards/saveimage', [KboardController::class, 'saveimage'])->name('boards.saveimage');
+    Route::post('/boards/memoup', [KboardController::class, 'memoup'])->name('boards.memoup');
+    Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');
+    Route::post('/boards/update/{id}', [KboardController::class, 'update'])->name('boards.update');
+    Route::get('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
+    Route::post('/boards/memodelete', [KboardController::class, 'memodelete'])->name('boards.memodelete');
+    Route::post('/boards/deletefile', [KboardController::class, 'deletefile'])->name('boards.deletefile');
+});    
 
 Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/loginok', [LoginController::class, 'login']) -> name('auth.loginok');
