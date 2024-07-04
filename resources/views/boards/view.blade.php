@@ -119,7 +119,11 @@
                 </div>
                 <input type="hidden" name="memoid" id="memopid" value="{{ $m->id }}">
                 <textarea class="form-control" aria-label="With textarea" name="{{ 'memo_'.$m->id }}" id="{{ 'memo_'.$m->id }}" placeholder="대댓글을 입력해주세요"></textarea>
-                <button type="button" class="btn btn-secondary" style="float:right;" id="{{ 'memo_submit_reply_'.$m->id }}" onclick="memo_reply('{{ $m->id }}','{{ $boards->num }}')">입력</button>
+                @if(auth())
+                    <button type="button" class="btn btn-secondary" style="float:right;" id="{{ 'memo_submit_reply_'.$m->id }}" onclick="memo_reply('{{ $m->id }}','{{ $boards->num }}')">입력</button>
+                @else
+                    <button type="button" class="btn btn-secondary" style="float:right;" onclick="alert('로그인 하셔야 입력할 수 있습니다.');">입력</button>
+                @endif
             </div>
         @endif
         @endforeach
