@@ -122,14 +122,18 @@ class KboardController extends Controller
     public function memodelete(Request $request)
     {
         $data = memo::findOrFail($request->id);
-        attachdeletes($data->memo_file);
-        $rs = $data->delete();
+        if(Auth::user()->email==$data->userid){
+            attachdeletes($data->memo_file);
+            $rs = $data->delete();
 
-        if($rs){
-            Kboard::find($request->bid)->decrement('memo_cnt');
+            if($rs){
+                Kboard::find($request->bid)->decrement('memo_cnt');
+            }
+
+            return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+        }else{
+            return response()->json(array('msg'=> "fail"), 200);
         }
-
-        return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
     }
 
     public function memoup(Request $request)
