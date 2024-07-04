@@ -71,7 +71,7 @@
                         <div class="card-body">
                             <p class="card-text">{{ $m->memo }}</p>
                             @auth()
-                            <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="reply_modify('{{ $m->id }}','{{ $boards->num }}')">수정</a></span>
+                            <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_modify('{{ $m->id }}')">수정</a></span>
                             <span class="badge bg-secondary" style="cursor:pointer;padding:10px;"><a onclick="memo_delete('{{ $m->id }}','{{ $boards->num }}')">삭제</a></span>
                             @endauth
                         </div>
