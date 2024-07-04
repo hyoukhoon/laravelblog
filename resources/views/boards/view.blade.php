@@ -185,7 +185,7 @@
             };
             $.ajax({
                 headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
-                type: 'get',
+                type: 'post',
                 url: '{{ route('boards.memoread') }}',
                 dataType: 'json',
                 data: data,

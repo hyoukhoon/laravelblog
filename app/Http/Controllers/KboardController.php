@@ -123,9 +123,9 @@ class KboardController extends Controller
         }
     }
 
-    public function memoread($mid)
+    public function memoread(Request $request)
     {
-        $data = memo::findOrFail($mid);
+        $data = memo::findOrFail($request->mid);
         if(Auth::user()->email==$data->userid){
             return response()->json(array('msg'=> "succ", 'data'=>$data), 200);
         }else{
