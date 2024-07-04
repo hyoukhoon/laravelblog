@@ -112,11 +112,15 @@ class KboardController extends Controller
     public function delete($num)
     {
         $data = Kboard::findOrFail($num);
-        attachdeletes($data->attachfile);
-        attachdeletes($data->file_list);
-        $data->delete();
+        if(Auth::user()->email==$data->email){
+            attachdeletes($data->attachfile);
+            attachdeletes($data->file_list);
+            $data->delete();
 
-        return redirect('/boards')->with('success', 'Data is successfully deleted');
+            return redirect('/boards')->with('success', 'Data is successfully deleted');
+        }else{
+            return redirect('/boards/show/'.$num);
+        }
     }
 
     public function memodelete(Request $request)
