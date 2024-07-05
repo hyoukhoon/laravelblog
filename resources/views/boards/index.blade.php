@@ -56,7 +56,7 @@
                 {{-- <th scope="row">{{$key+1 + (($boards->currentPage()-1) * 10)}}</th> --}}
                 <th scope="row">{{ $idx-- }}</th>
                 <td>{{$board->name}}</td>
-                <td><a href="{{ route('boards.show', $board->num, $pagenumber) }}">{{$board->subject}}</a>
+                <td><a href="/boards/show/{{$board->num}}/{{$pagenumber}}">{{$board->subject}}</a>
                     {{ $board->memo_cnt?"[".$board->memo_cnt."]":"" }}
                 </td>
                 <td>{{$board->cnt}}</td>
