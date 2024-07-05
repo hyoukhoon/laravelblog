@@ -1,7 +1,7 @@
 @extends('boards.layout')
 @section('content')
 <br />
-     <form method="post" action="{{ route('boards.update', $boards->num) }}" enctype="multipart/form-data">
+     <form method="post" action="{{ route('boards.update') }}" enctype="multipart/form-data">
         @csrf
         @method('post')
       <input type="hidden" name="attcnt" id="attcnt" value="0">
