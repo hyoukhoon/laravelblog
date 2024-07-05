@@ -67,7 +67,7 @@ class KboardController extends Controller
         $boards->content = htmlspecialchars_decode($boards->content);
         $boards->content = str_replace("/board/upImages/","https://www.zzarbang.com/board/upImages/",$boards->content);
         $boards->attfiles = $boards->attachfile?explode(",",$boards->attachfile):0;
-        $boards->pagenumber = $page??1;
+        $boards->pagenumber = $page;
 
         $memos = memo::where('bid', $num)
             ->orderByRaw('IFNULL(pid,id), pid ASC')
