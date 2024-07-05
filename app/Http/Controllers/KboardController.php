@@ -54,11 +54,10 @@ class KboardController extends Controller
             'isdisp' => 1
         );
 
-        $rs=Kboard::create($form_data);
-
-        return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
-
-        //return redirect('/boards')->with('success', 'Data Added successfully.');
+        if(auth()->check()){
+            $rs=Kboard::create($form_data);
+            return response()->json(array('msg'=> "succ", 'num'=>$rs->num), 200);
+        }
     }
 
     public function show($num)
@@ -184,15 +183,17 @@ class KboardController extends Controller
         $insert_data->name = Auth::user()->nickName;
         $insert_data->userid = Auth::user()->email;
 
-        $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
-        if($rs){
-            Kboard::find($request->bid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
-            Kboard::where('num', $request->bid)->update([//부모글의 댓글 날짜 업데이트
-                'memo_date' => date('Y-m-d H:i:s')
-            ]);
-        }
+        if(auth()->check()){
+            $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
+            if($rs){
+                Kboard::find($request->bid)->increment('memo_cnt');//부모글의 댓글 갯수 업데이트
+                Kboard::where('num', $request->bid)->update([//부모글의 댓글 날짜 업데이트
+                    'memo_date' => date('Y-m-d H:i:s')
+                ]);
+            }
 
-        return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+            return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+        }
     }
 
     public function saveimage(Request $request)
@@ -201,11 +202,13 @@ class KboardController extends Controller
             'file' => 'required|image|max:2048'
         ]);
 
-        $image = $request->file('file');
-        $new_name = rand().'_'.time().'.'.$image->getClientOriginalExtension();
-        $image->move(public_path('images'), $new_name);
-        $fid = rand();
-        return response()->json(array('msg'=> "succ", 'fn'=>$new_name, 'fid'=>$fid), 200);
+        if(auth()->check()){
+            $image = $request->file('file');
+            $new_name = rand().'_'.time().'.'.$image->getClientOriginalExtension();
+            $image->move(public_path('images'), $new_name);
+            $fid = rand();
+            return response()->json(array('msg'=> "succ", 'fn'=>$new_name, 'fid'=>$fid), 200);
+        }
     }
 
     public function deletefile(Request $request)
