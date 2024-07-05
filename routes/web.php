@@ -48,7 +48,7 @@ Route::middleware('auth') -> group(function (){
     Route::post('/boards/saveimage', [KboardController::class, 'saveimage'])->name('boards.saveimage');
     Route::post('/boards/memoup', [KboardController::class, 'memoup'])->name('boards.memoup');
     Route::get('/boards/edit/{id}', [KboardController::class, 'edit'])->name('boards.edit');
-    Route::post('/boards/update/{id}', [KboardController::class, 'update'])->name('boards.update');
+    Route::post('/boards/update', [KboardController::class, 'update'])->name('boards.update');
     Route::get('/boards/delete/{id}', [KboardController::class, 'delete'])->name('boards.delete');
     Route::post('/boards/memoread', [KboardController::class, 'memoread'])->name('boards.memoread');
     Route::post('/boards/memomodifyup', [KboardController::class, 'memomodifyup'])->name('boards.memomodifyup');

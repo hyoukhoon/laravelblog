@@ -7,6 +7,7 @@
       <input type="hidden" name="attcnt" id="attcnt" value="0">
       <input type="hidden" name="imgUrl" id="imgUrl" value="">
       <input type="hidden" name="attachFile" id="attachFile" value="">
+      <input type="hidden" name="num" id="num" value="{{ $boards->num}}">
       <div class="form-group">
        <label class="col-md-4 text-right">제목</label>
        <div class="col-md-8">

@@ -88,23 +88,30 @@ class KboardController extends Controller
         return view('boards.summernote', compact('boards'));
     }
 
-    public function update(Request $request, $num)
+    public function update(Request $request)
     {
 
+        $num = $request->num;
         $request->validate([
             'subject'    =>  'required',
             'content'     =>  'required'
         ]);
 
         $form_data = array(
-            'subject'       =>   $request->subject,
-            'content'        =>   $request->content
+            'subject' => $request->subject,
+            'content' => $request->content,
+            'file_list' => $request->imgUrl,
+            'attachfile' => $request->attachFile,
         );
 
-        if(Kboard::where('num', $num)->update($form_data)){
-            return redirect('/boards/show/'.$num);
-        }else{
-            return redirect('/boards/edit/'.$num);
+        $boards = Kboard::findOrFail($num);
+
+        if(Auth::user()->email==$boards->email){
+            if(Kboard::where('num', $num)->update($form_data)){
+                return redirect('/boards/show/'.$num);
+            }else{
+                return redirect('/boards/edit/'.$num);
+            }
         }
     }
 
