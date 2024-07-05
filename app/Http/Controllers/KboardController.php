@@ -108,7 +108,7 @@ class KboardController extends Controller
 
         if(Auth::user()->email==$boards->email){
             if(Kboard::where('num', $num)->update($form_data)){
-                return redirect('/boards/show/'.$num);
+                return response()->json(array('msg'=> "succ", 'num'=>$num), 200);
             }else{
                 return redirect('/boards/edit/'.$num);
             }

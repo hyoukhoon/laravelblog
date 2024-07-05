@@ -35,7 +35,7 @@
          <input type="file" name="afile" id="afile" accept="image/*" multiple class="form-control" aria-label="Large file input example">
     </div>
       <div class="col-md-8 form-group text-center">
-       <input type="submit" name="edit" class="btn btn-primary input-lg" value="수정" />
+       <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendSubmit();">수정하기</button>
       </div>
      </form>
 <script>
@@ -59,5 +59,32 @@
                }
           });
    }
+
+   function sendsubmit(){
+          var subject=$("#subject").val();
+          var content=$('#summerframe').get(0).contentWindow.$('#summernote').summernote('code');//iframe에 있는 summernote함수를 작동시킨다.
+          var imgUrl = $("#imgUrl").val();
+          var attachFile = $("#attachFile").val();
+          var data = {
+               subject : subject,
+               content : content,
+               imgUrl : imgUrl,
+               attachFile : attachFile,
+               num : '<?php echo $boards->num;?>'
+          };
+          $.ajax({
+               headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+               type: 'post',
+               url: '{{ route('boards.update') }}',
+               dataType: 'json',
+               data: data,
+               success: function(data) {
+                    location.href='/boards/show/'+data.num;
+               },
+               error: function(data) {
+                    console.log("error" +data);
+               }
+          });
+     }
 </script>
 @endsection
