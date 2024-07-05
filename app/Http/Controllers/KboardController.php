@@ -92,6 +92,8 @@ class KboardController extends Controller
     {
 
         $num = $request->num;
+        print_r($request);
+        exit;
         $request->validate([
             'subject'    =>  'required',
             'content'     =>  'required'
