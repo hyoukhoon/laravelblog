@@ -79,7 +79,7 @@
                dataType: 'json',
                data: data,
                success: function(data) {
-                    location.href='/boards/show/'+data.num;
+                    location.href='/boards/show/'+data.num+'/1';
                },
                error: function(data) {
                     console.log("error" +data);
