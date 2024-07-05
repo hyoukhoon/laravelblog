@@ -35,7 +35,7 @@
          <input type="file" name="afile" id="afile" accept="image/*" multiple class="form-control" aria-label="Large file input example">
     </div>
       <div class="col-md-8 form-group text-center">
-       <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendSubmit();">수정하기</button>
+       <button type="button" name="edit" class="btn btn-primary input-lg" onclick="sendsubmit();">수정하기</button>
       </div>
      </form>
 <script>
