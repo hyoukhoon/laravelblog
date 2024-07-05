@@ -34,7 +34,7 @@
             <a href="/boards/delete/{{ $boards->num }}" class="btn btn-secondary" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
         @endif
         @endauth
-        <a href="/boards/?page={{ $boards->pagenumber }}" class="btn btn-primary">목록</a>
+        <a href="/boards/?page={{ $boards->pagenumber??1 }}" class="btn btn-primary">목록</a>
     </div>
     
     <!--댓글 시작 -->
