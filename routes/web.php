@@ -38,7 +38,7 @@ Route::get('/qna', [QnaController::class, 'index'])->name('qna.index');
 
 Route::get('/boards', [KboardController::class, 'index'])->name('boards.index');
 Route::get('/boards/search/', [KboardController::class, 'search'])->name('boards.search');
-Route::get('/boards/show/{id}', [KboardController::class, 'show'])->name('boards.show');
+Route::get('/boards/show/{id}/{page}', [KboardController::class, 'show'])->name('boards.show');
 
 Route::middleware('auth') -> group(function (){
     Route::get('/boards/write', [KboardController::class, 'write'])->name('boards.write');
