@@ -250,9 +250,6 @@ class KboardController extends Controller
         if(auth()->check()){
             $rpts = report::where('bid', $request->bid)
                         ->where('userid',Auth::user()->email)->count();
-            echo "<pre>";
-            print_r($rpts);
-            exit;
             if($rpts){
                 return response()->json(array('msg'=> "이미 신고하신 게시물입니다.", 'result'=>false), 200);
             }else{
