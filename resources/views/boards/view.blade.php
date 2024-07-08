@@ -33,6 +33,9 @@
             <a href="/boards/edit/{{ $boards->num }}"><button type="button" class="btn btn-secondary">수정</button></a>
             <a href="/boards/delete/{{ $boards->num }}" class="btn btn-secondary" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
         @endif
+        @if($boards->email!=auth()->user()->email)
+            <button type="button" class="btn btn-alert" id="report">신고</button>
+        @endif
         @endauth
         <a href="/boards/?page={{ $boards->pagenumber }}" class="btn btn-primary">목록</a>
     </div>
