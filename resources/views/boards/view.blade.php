@@ -34,7 +34,9 @@
             <a href="/boards/delete/{{ $boards->num }}" class="btn btn-secondary" onclick="return confirm('삭제하시겠습니까?');">삭제</a>
         @endif
         @if($boards->email!=auth()->user()->email)
-            <button type="button" class="btn btn-danger" id="report">신고</button>
+            <button type="button" class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                신고
+            </button>
         @endif
         @endauth
         <a href="/boards/?page={{ $boards->pagenumber }}" class="btn btn-primary">목록</a>
@@ -151,6 +153,26 @@
     </div>
     <!-- 댓글 입력 끝-->
     <div style="padding:20px;">
+    </div>
+
+    <!-- 신고 모달 -->
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h1 class="modal-title fs-5" id="exampleModalLabel">신고하기</h1>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+            ...
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">등록</button>
+            </div>
+        </div>
+        </div>
     </div>
 
     <script>
