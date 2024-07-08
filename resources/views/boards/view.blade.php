@@ -381,7 +381,7 @@
             success: function(data) {
                 if(data.result==true){
                     alert('신고했습니다.');
-                    //location.reload();
+                    location.reload();
                 }
             },
             error: function(data) {

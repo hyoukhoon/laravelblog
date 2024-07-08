@@ -247,6 +247,10 @@ class KboardController extends Controller
         $insert_data->bid = $request->bid;
         $insert_data->userid = Auth::user()->email;
 
+        $rs = report::where(['bid', $request->bid],['userid',Auth::user()->email])->get();
+        print_r($rs);
+        exit;
+
         if(auth()->check()){
             $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
             return response()->json(array('msg'=> "succ", 'result'=>$rs), 200);
