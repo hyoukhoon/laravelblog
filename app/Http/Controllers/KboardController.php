@@ -249,7 +249,7 @@ class KboardController extends Controller
 
         if(auth()->check()){
             $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
-            return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+            return response()->json(array('msg'=> "succ", 'result'=>$rs), 200);
         }
     }
 

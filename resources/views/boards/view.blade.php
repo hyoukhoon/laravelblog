@@ -379,8 +379,10 @@
             dataType: 'json',
             data: data,
             success: function(data) {
-            console.log(JSON.stringify(data));
-            location.reload();
+                if(data.result==true){
+                    alert('신고했습니다.');
+                    //location.reload();
+                }
             },
             error: function(data) {
             console.log("error" +JSON.stringify(data));
