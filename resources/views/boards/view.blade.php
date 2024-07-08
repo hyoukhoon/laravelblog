@@ -382,6 +382,9 @@
                 if(data.result==true){
                     alert('신고했습니다.');
                     location.reload();
+                }else{
+                    alert(data.msg);
+                    location.reload();
                 }
             },
             error: function(data) {
