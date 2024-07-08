@@ -41,6 +41,7 @@ Route::middleware('auth') -> group(function (){
     Route::post('/boards/memomodifyup', [KboardController::class, 'memomodifyup'])->name('boards.memomodifyup');
     Route::post('/boards/memodelete', [KboardController::class, 'memodelete'])->name('boards.memodelete');
     Route::post('/boards/deletefile', [KboardController::class, 'deletefile'])->name('boards.deletefile');
+    Route::post('/boards/reportup', [KboardController::class, 'reportup'])->name('boards.reportup');
 });    
 
 Route::get('/login', [LoginController::class, 'index'])->name('auth.login');

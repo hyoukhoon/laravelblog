@@ -365,6 +365,29 @@
 
 }
 
+
+    $("#reportwrite").click(function () {
+		var contents=$("#reportcontent").val();
+        var data = {
+            contents : contents,
+            bid : '{{ $boards->num }}'
+        };
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'post',
+            url: '{{ route('boards.reportup') }}',
+            dataType: 'json',
+            data: data,
+            success: function(data) {
+            console.log(JSON.stringify(data));
+            location.reload();
+            },
+            error: function(data) {
+            console.log("error" +JSON.stringify(data));
+            }
+        });
+    });
+
    </script>
 
 @endsection

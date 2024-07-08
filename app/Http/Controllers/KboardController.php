@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Kboard;
 use App\Models\memo;
+use App\Models\report;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
@@ -236,6 +237,20 @@ class KboardController extends Controller
         Kboard::where('num', $num)->update($form_data);
 
         return response()->json(array('msg'=> "succ", 'fn'=>$image, 'fid'=>substr($image,0,10)), 200);
+    }
+
+    public function reportup(Request $request)
+    {
+
+        $insert_data = new report();
+        $insert_data->contents = $request->contents;
+        $insert_data->bid = $request->bid;
+        $insert_data->userid = Auth::user()->email;
+
+        if(auth()->check()){
+            $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
+            return response()->json(array('msg'=> "succ", 'num'=>$rs), 200);
+        }
     }
 
 }
