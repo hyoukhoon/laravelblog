@@ -252,7 +252,7 @@ class KboardController extends Controller
                         ->where('userid',Auth::user()->email)->get();
             if($rpts){
                 return response()->json(array('msg'=> "이미 신고하신 게시물입니다.", 'result'=>false), 200);
-            }ele{
+            }else{
                 $rs = $insert_data->save(); // 여기서 $rs는 true만 리턴
                 return response()->json(array('msg'=> "succ", 'result'=>$rs), 200);
             }
