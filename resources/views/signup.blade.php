@@ -53,3 +53,8 @@
     </div>
   </section>
   @endsection  
+<script>
+  $("#email").on( "keyup, keydown", function() {
+    alert("keyup");
+});
+</script>
