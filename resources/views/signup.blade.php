@@ -52,9 +52,9 @@
       </div>
     </div>
   </section>
+  <script>
+    $("#email").on("keyup, keydown", function() {
+      alert("keyup");
+    });
+  </script>
   @endsection  
-<script>
-  $('#email').keyup(function (e) {
-      console.log("key=>up");
-  });
-</script>
