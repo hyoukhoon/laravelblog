@@ -9,7 +9,7 @@
             <div class="card-body">
               <div class="row align-items-center pt-4 pb-3">
                 <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">이름</h6>
+                  <h6 class="mb-0">이름(닉넴임)</h6>
                 </div>
                 <div class="col-md-9 pe-5">
                   <input type="text" class="form-control form-control-lg" />
@@ -34,18 +34,7 @@
                 </div>
               </div>
               <hr class="mx-n3">
-              {{-- <div class="row align-items-center py-3">
-                <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">Upload CV</h6>
-                </div>
-                <div class="col-md-9 pe-5">
-                  <input class="form-control form-control-lg" id="formFileLg" type="file" />
-                  <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
-                    size 50 MB</div>
-                </div>
-              </div> 
-              <hr class="mx-n3">--}}
-              <div class="px-5 py-4">
+              <div class="px-5 py-4" style="text-align:center;">
                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">가입하기</button>
               </div>
             </div>
