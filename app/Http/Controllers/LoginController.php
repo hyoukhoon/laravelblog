@@ -13,6 +13,10 @@ class LoginController extends Controller
         return view('login');
     }
 
+    public function signup(){
+        return view('signup');
+    }
+
     public function login(Request $request){
         $email = $request->email;
         $passwd = $request->passwd;
