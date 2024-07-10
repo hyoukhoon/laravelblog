@@ -66,7 +66,7 @@
         @endforeach
         </tbody>
     </table>
-    <div style="text-align:absmiddle;">
+    <div style="position: absolute;transform: translate(50%, 50%);">
         {!! $boards->withQueryString()->links() !!}
         {{-- {!! $boards->withQueryString()->links('paginations.default') !!} --}}
     </dvi>
