@@ -12,7 +12,7 @@
                   <h6 class="mb-0">이름(닉넴임)</h6>
                 </div>
                 <div class="col-md-9 pe-5">
-                  <input type="text" class="form-control form-control-lg" />
+                  <input type="text" name="name" id="name" class="form-control form-control-lg" />
                 </div>
               </div>
               <hr class="mx-n3">
@@ -21,7 +21,7 @@
                   <h6 class="mb-0">이메일</h6>
                 </div>
                 <div class="col-md-9 pe-5">
-                  <input type="email" class="form-control form-control-lg" placeholder="example@example.com" />
+                  <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="example@example.com" />
                 </div>
               </div>
               <hr class="mx-n3">
@@ -30,12 +30,21 @@
                   <h6 class="mb-0">비밀번호</h6>
                 </div>
                 <div class="col-md-9 pe-5">
-                    <input type="password" class="form-control form-control-lg" />
+                    <input type="password" name="password1" id="password1" class="form-control form-control-lg" />
+                </div>
+              </div>
+              <hr class="mx-n3">
+              <div class="row align-items-center py-3">
+                <div class="col-md-3 ps-5">
+                  <h6 class="mb-0">비밀번호 확인</h6>
+                </div>
+                <div class="col-md-9 pe-5">
+                    <input type="password" name="password2" id="password2" class="form-control form-control-lg" />
                 </div>
               </div>
               <hr class="mx-n3">
               <div class="px-5 py-4" style="text-align:center;">
-                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">가입하기</button>
+                <button type="button" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg" id="signup">가입하기</button>
               </div>
             </div>
           </div>
