@@ -4,7 +4,7 @@
     <div class="container h-100">
       <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-xl-9">
-          <h1 class="text-white mb-4">회원가입</h1>
+          <h1 class="mb-4">회원가입</h1>
           <div class="card" style="border-radius: 15px;">
             <div class="card-body">
               <div class="row align-items-center pt-4 pb-3">
@@ -43,8 +43,8 @@
                   <div class="small text-muted mt-2">Upload your CV/Resume or any other relevant file. Max file
                     size 50 MB</div>
                 </div>
-              </div> --}}
-              <hr class="mx-n3">
+              </div> 
+              <hr class="mx-n3">--}}
               <div class="px-5 py-4">
                 <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg">가입하기</button>
               </div>
