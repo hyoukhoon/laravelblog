@@ -54,7 +54,7 @@
   </section>
   <script>
     $("#email").on("keyup, keydown", function() {
-      alert("keyup");
+      console.log("key");
     });
   </script>
   @endsection  
