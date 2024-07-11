@@ -48,3 +48,4 @@ Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/loginok', [LoginController::class, 'login']) -> name('auth.loginok');
 Route::post('/logout', [LoginController::class, 'logout']) -> name('auth.logout');
 Route::get('/signup', [LoginController::class, 'signup'])->name('auth.signup');
+Route::post('/emailcheck', [LoginController::class, 'emailcheck'])->name('auth.emailcheck');

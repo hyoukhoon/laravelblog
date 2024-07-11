@@ -53,8 +53,28 @@
     </div>
   </section>
   <script>
-    $("#email").on("keyup, keydown", function() {
-      console.log("key");
+    $("#email").on("keyup", function() {
+        var email=$("#email").val();
+        var data = {
+            email : email
+        };
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'post',
+            url: '{{ route('auth.emailcheck') }}',
+            dataType: 'json',
+            data: data,
+            success: function(data) {
+                if(data.result==true){
+                    console.log(data.msg)
+                }else{
+                    console.log(data.msg)
+                }
+            },
+            error: function(data) {
+            console.log("error" +JSON.stringify(data));
+            }
+        });
     });
   </script>
   @endsection  

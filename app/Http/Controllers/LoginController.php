@@ -17,6 +17,19 @@ class LoginController extends Controller
         return view('signup');
     }
 
+    public function emailcheck(Request $request){
+        $email = $request->email;
+        
+        //$ismember=Member::where($loginInfo)->exists();
+        $rs = Member::where('email',$email)->count();
+        //print_r($ismember);
+        if($rs){
+            return response()->json(array('msg'=> "이미 사용중입니다.", 'result'=>false), 200);
+        }else{
+            return response()->json(array('msg'=> "사용할 수 있는 이메일입니다.", 'result'=>true), 200);
+        }
+    }
+
     public function login(Request $request){
         $email = $request->email;
         $passwd = $request->passwd;
