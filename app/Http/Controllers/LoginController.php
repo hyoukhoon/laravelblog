@@ -45,7 +45,8 @@ class LoginController extends Controller
         $form_data = array(
             'email' => $request->email,
             'passwd' => $passwd,
-            'name' => $request->name
+            'name' => $request->name,
+            'nickName' => $request->name
         );
 
         $rs=Member::create($form_data);
