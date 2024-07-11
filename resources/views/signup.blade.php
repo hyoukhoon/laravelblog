@@ -21,7 +21,8 @@
                   <h6 class="mb-0">이메일</h6>
                 </div>
                 <div class="col-md-9 pe-5">
-                  <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="example@example.com" />
+                  <input type="email" name="email" id="email" class="form-control form-control-lg" placeholder="example@example.com" /><br>
+                  <span id="emailmsg"></span>
                 </div>
               </div>
               <hr class="mx-n3">
@@ -66,9 +67,9 @@
             data: data,
             success: function(data) {
                 if(data.result==true){
-                    console.log(data.msg)
+                    $("#emailmsg").html("<font color='blue'>"+data.msg+"</font>");
                 }else{
-                    console.log(data.msg)
+                    $("#emailmsg").html("<font color='red'>"+data.msg+"</font>");
                 }
             },
             error: function(data) {
