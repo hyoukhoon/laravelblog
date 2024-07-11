@@ -9,10 +9,12 @@
             <div class="card-body">
               <div class="row align-items-center pt-4 pb-3">
                 <div class="col-md-3 ps-5">
-                  <h6 class="mb-0">이름(닉넴임)</h6>
+                  <h6 class="mb-0">이름(닉네임)</h6>
                 </div>
                 <div class="col-md-9 pe-5">
                   <input type="text" name="name" id="name" class="form-control form-control-lg" />
+                  <br>
+                  <span id="namemsg"></span>
                 </div>
               </div>
               <hr class="mx-n3">
@@ -54,6 +56,30 @@
     </div>
   </section>
   <script>
+    $("#name").on("keyup", function() {
+        var name=$("#name").val();
+        var data = {
+          name : name
+        };
+        $.ajax({
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')},
+            type: 'post',
+            url: '{{ route('auth.namecheck') }}',
+            dataType: 'json',
+            data: data,
+            success: function(data) {
+                if(data.result==true){
+                    $("#namemsg").html("<font color='blue'>"+data.msg+"</font>");
+                }else{
+                    $("#namemsg").html("<font color='red'>"+data.msg+"</font>");
+                }
+            },
+            error: function(data) {
+            console.log("error" +JSON.stringify(data));
+            }
+        });
+    });
+
     $("#email").on("keyup", function() {
         var email=$("#email").val();
         var data = {
@@ -77,5 +103,7 @@
             }
         });
     });
+
+
   </script>
   @endsection  

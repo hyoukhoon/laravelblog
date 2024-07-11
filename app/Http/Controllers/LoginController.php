@@ -20,13 +20,22 @@ class LoginController extends Controller
     public function emailcheck(Request $request){
         $email = $request->email;
         
-        //$ismember=Member::where($loginInfo)->exists();
         $rs = Member::where('email',$email)->count();
-        //print_r($ismember);
         if($rs){
             return response()->json(array('msg'=> "이미 사용중인 이메일입니다.", 'result'=>false), 200);
         }else{
             return response()->json(array('msg'=> "사용할 수 있는 이메일입니다.", 'result'=>true), 200);
+        }
+    }
+
+    public function namecheck(Request $request){
+        $name = $request->name;
+        
+        $rs = Member::where('nickName',$name)->count();
+        if($rs){
+            return response()->json(array('msg'=> "이미 사용중인 이름입니다.", 'result'=>false), 200);
+        }else{
+            return response()->json(array('msg'=> "사용할 수 있는 이름입니다.", 'result'=>true), 200);
         }
     }
 
