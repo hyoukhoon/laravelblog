@@ -48,5 +48,6 @@ Route::get('/login', [LoginController::class, 'index'])->name('auth.login');
 Route::post('/loginok', [LoginController::class, 'login']) -> name('auth.loginok');
 Route::post('/logout', [LoginController::class, 'logout']) -> name('auth.logout');
 Route::get('/signup', [LoginController::class, 'signup'])->name('auth.signup');
+Route::post('/signupok', [LoginController::class, 'signupok'])->name('auth.signupok');
 Route::post('/emailcheck', [LoginController::class, 'emailcheck'])->name('auth.emailcheck');
 Route::post('/namecheck', [LoginController::class, 'namecheck'])->name('auth.namecheck');
