@@ -5,6 +5,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Log;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -40,6 +41,11 @@ class LoginController extends Controller
     }
 
     public function signupok(Request $request){
+        $validator = Validator::make($request->all(), [
+            'name' => 'required',
+            'email' => 'required',
+            'passwd' => 'required'
+        ]);
         $passwd = $request->password;
         $passwd = hash('sha512',$passwd);
         $form_data = array(
